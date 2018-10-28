@@ -69,6 +69,8 @@ Prometheus$methods(
 
     r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query_range"), collapse = ""),
              query = params)
-    return(httr::content(r, as = "text", encoding = "utf-8"))
+    metricsRaw <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
+    metrics <- data.frame(metricsRaw$data$result)
+    return(metrics)
   }
 )
