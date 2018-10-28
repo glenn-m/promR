@@ -3,7 +3,7 @@
 \docType{class}
 \name{Prometheus}
 \alias{Prometheus}
-\title{Prometheus}
+\title{Prometheus class}
 \description{
 Reference Class to interface with a Prometheus Server
 }

@@ -1,0 +1,31 @@
+---
+output: github_document
+---
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+# promR
+
+R library for reading and analysing metrics stored on a Prometheus server.
+
+## Installation
+```{r, echo = TRUE, eval = FALSE}
+if (requireNamespace("devtools", quietly = TRUE)) {
+    devtools::install_github('glenn-m/promR')
+} else {
+    install.packages("devtools")
+    devtools::install_github('glenn-m/R')
+}
+```
+
+## Usage
+
+Query to retrieve the current total number of HTTP Requests metric.
+
+```{r, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51.781Z")
+```
+**Output:**
+```{r, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics))
+```

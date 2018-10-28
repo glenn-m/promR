@@ -1,8 +1,10 @@
-library('httr')
 #'
 #' @name Prometheus
-#' @title Prometheus
+#' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
+#' @exportClass Prometheus
+#' @export Prometheus
+#' @import methods
 #' @field host The hostname of the Prometheus server
 #' @field port The port number of the Prometheus server
 #' @examples
@@ -11,8 +13,8 @@ Prometheus <- setRefClass("Prometheus", fields = list(host = "character", port =
 
 #'
 #' @name Prometheus_query
-#' @description Run a instant query against the Prometheus Server
 #' @title Prometheus Instant Query
+#' @description Run a instant query against the Prometheus Server
 #' @param query The PromQL query
 #' @param time Evaluation timestamp, can be a rfc3339 or unix timestamp. Optional, defaults to current Prometheus server time.
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
@@ -33,9 +35,15 @@ Prometheus$methods(
       params <- c(params, timeout = timeout)
     }
 
-    r <- GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
              query = params)
-    return(content(r, as = "text"))
+    metricsRaw <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
+    metrics <- data.frame(metricsRaw$data$result$metric)
+    for (row in 1:nrow(metrics)) {
+      metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
+      metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
+    }
+    return(metrics)
   }
 )
 
@@ -59,8 +67,8 @@ Prometheus$methods(
       params <- c(params, timeout = timeout)
     }
 
-    r <- GET(paste0(c(host, ":", port, "/api/v1/query_range"), collapse = ""),
+    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query_range"), collapse = ""),
              query = params)
-    return(content(r, as = "text"))
+    return(httr::content(r, as = "text", encoding = "utf-8"))
   }
 )
