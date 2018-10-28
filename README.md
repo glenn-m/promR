@@ -19,7 +19,7 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-Query to retrieve the current total number of HTTP Requests metric.
+To retrieve the current value of the `http_requests_total` metric
 
 ``` r
 library(promR)
