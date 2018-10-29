@@ -29,3 +29,8 @@ metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51
 ```{r, echo = FALSE, results = 'asis'}
 knitr::kable(head(metrics))
 ```
+
+## Contributors
+
+- [Glenn McDonald](https://github.com/glenn-m)
+- [Konrad Zdeb](https://github.com/konradedgar)

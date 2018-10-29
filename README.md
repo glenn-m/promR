@@ -37,3 +37,8 @@ metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51
 | http\_requests\_total | 202  | delete     | demo.robustperception.io:9091 | pushgateway | delete | 1540584651.781 | 50      |
 | http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | post   | 1540584651.781 | 21      |
 | http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | put    | 1540584651.781 | 142551  |
+
+## Contributors
+
+  - [Glenn McDonald](https://github.com/glenn-m)
+  - [Konrad Zdeb](https://github.com/konradedgar)
