@@ -1,3 +1,7 @@
+# R production files
 .Rproj.user
 .Rhistory
 .RData
+
+# RStudio session log
+sessionInfoLog
