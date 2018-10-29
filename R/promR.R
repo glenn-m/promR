@@ -34,7 +34,7 @@ Prometheus$methods(
     }
 
     # If timeout is not provided it uses server default
-    if (!is.null(time)) {
+    if (!is.null(timeout)) {
       params <- c(params, timeout = timeout)
     }
 
