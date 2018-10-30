@@ -38,6 +38,16 @@ metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51
 | http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | post   | 1540584651.781 | 21      |
 | http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | put    | 1540584651.781 | 142551  |
 
+## Contributing
+
+1.  Fork it ( <https://github.com/glenn-m/promR/fork> )
+2.  Create your feature branch (git checkout -b my-new-feature)
+3.  Make your changes
+4.  Run `devtools::test()` to ensure tests are passing.
+5.  Commit your changes (git commit -am ‘Add some feature’)
+6.  Push to the branch (git push origin my-new-feature)
+7.  Create a new Pull Request
+
 ## Contributors
 
   - [Glenn McDonald](https://github.com/glenn-m)
