@@ -1,4 +1,3 @@
-#'
 #' @name Prometheus
 #' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
@@ -11,7 +10,6 @@
 Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric"))
 
-#'
 #' @name Prometheus_query
 #' @title Prometheus Instant Query
 #' @description Run a instant query against the Prometheus Server
@@ -19,8 +17,11 @@ Prometheus <-
 #' @param time Evaluation timestamp, can be a rfc3339 or unix timestamp. Optional, defaults to current Prometheus server time.
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
+#' \dontrun{
+#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #' metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
 #' metrics <- prom$query(query = "up", time = "1540677062")
+#' }
 Prometheus$methods(
   query = function(query,
                    time = NULL,
@@ -51,7 +52,6 @@ Prometheus$methods(
   }
 )
 
-#'
 #' @name Prometheus_rangeQuery
 #' @title Promtheus Range Query
 #' @description Run a range query against the Prometheus Server
@@ -61,7 +61,16 @@ Prometheus$methods(
 #' @param step Query resolution step width (e.g. 15s)
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
-#' rangeMetrics <- prom$rangeQuery(query = "up", start = "2018-10-25T20:10:51.781Z", end = "2018-10-26T20:10:51.781Z", step = "15s")
+#' \dontrun{
+#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' rangeMetrics <-
+#'  prom$rangeQuery(
+#'    query = "up",
+#'    start = "2018-10-25T20:10:51.781Z",
+#'    end = "2018-10-26T20:10:51.781Z",
+#'    step = "15s"
+#'  )
+#' }
 Prometheus$methods(
   rangeQuery = function(query, start, end, step, timeout = NULL) {
     params <- list(

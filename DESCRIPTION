@@ -4,7 +4,7 @@ Title: Prometheus API Client
 Version: 0.1.1
 Author: Glenn McDonald
 Maintainer: Glenn McDonald <me@glennm.xyz>
-Description: An R library for reading metrics stored on a Prometheus Server
+Description: R library for reading metrics stored on a Prometheus Server.
 Depends: R (>= 3.3.0)
 License: MIT + file LICENSE
 Imports:

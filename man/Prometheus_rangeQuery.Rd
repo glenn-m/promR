@@ -18,5 +18,14 @@
 Run a range query against the Prometheus Server
 }
 \examples{
-rangeMetrics <- prom$rangeQuery(query = "up", start = "2018-10-25T20:10:51.781Z", end = "2018-10-26T20:10:51.781Z", step = "15s")
+\dontrun{
+prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+rangeMetrics <-
+ prom$rangeQuery(
+   query = "up",
+   start = "2018-10-25T20:10:51.781Z",
+   end = "2018-10-26T20:10:51.781Z",
+   step = "15s"
+ )
+}
 }
