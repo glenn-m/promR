@@ -4,7 +4,6 @@
 #' @description Reference Class to interface with a Prometheus Server
 #' @exportClass Prometheus
 #' @export Prometheus
-#' @import methods
 #' @field host The hostname of the Prometheus server
 #' @field port The port number of the Prometheus server
 #' @examples

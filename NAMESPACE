@@ -2,4 +2,3 @@
 
 export(Prometheus)
 exportClasses(Prometheus)
-import(methods)
