@@ -3,6 +3,9 @@
 
 # promR
 
+[![Build
+Status](https://travis-ci.org/glenn-m/promR.svg?branch=master)](https://travis-ci.org/glenn-m/promR)
+
 R library for reading and analysing metrics stored on a Prometheus
 server.
 
