@@ -1,17 +1,15 @@
 Package: promR
-Type: Package
 Title: Prometheus API Client
 Version: 0.1.1
 Author: Glenn McDonald
 Maintainer: Glenn McDonald <me@glennm.xyz>
 Description: R library for reading metrics stored on a Prometheus Server.
 Depends: R (>= 3.3.0)
-License: MIT + file LICENSE
 Imports:
   httr (>= 1.3.1),
   jsonlite (>= 1.5.0)
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
-Suggests: 
-    testthat
+Suggests: testthat

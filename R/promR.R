@@ -17,10 +17,10 @@ Prometheus <-
 #' @param time Evaluation timestamp, can be a rfc3339 or unix timestamp. Optional, defaults to current Prometheus server time.
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
-#' \dontrun{
-#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
-#' metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
-#' metrics <- prom$query(query = "up", time = "1540677062")
+#' \donttest{
+#'  prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#'  metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
+#'  metrics <- prom$query(query = "up", time = "1540677062")
 #' }
 Prometheus$methods(
   query = function(query,
@@ -61,7 +61,7 @@ Prometheus$methods(
 #' @param step Query resolution step width (e.g. 15s)
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #' rangeMetrics <-
 #'  prom$rangeQuery(

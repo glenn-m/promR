@@ -18,7 +18,7 @@
 Run a range query against the Prometheus Server
 }
 \examples{
-\dontrun{
+\donttest{
 prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 rangeMetrics <-
  prom$rangeQuery(
