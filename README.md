@@ -57,3 +57,4 @@ metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51
 
   - [Glenn McDonald](https://github.com/glenn-m)
   - [Konrad Zdeb](https://github.com/konradedgar)
+  - [Tyler Littlefield](https://github.com/tyluRp)
