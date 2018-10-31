@@ -45,3 +45,4 @@ knitr::kable(head(metrics))
 
 - [Glenn McDonald](https://github.com/glenn-m)
 - [Konrad Zdeb](https://github.com/konradedgar)
+- [Tyler Littlefield](https://github.com/tyluRp)
