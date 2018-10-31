@@ -24,7 +24,8 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-To retrieve the current value of the `http_requests_total` metric
+To retrieve the value of the `http_requests_total` metric at
+`2018-10-26T20:10:51.781Z`
 
 ``` r
 library(promR)
