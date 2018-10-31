@@ -7,18 +7,22 @@
 Status](https://travis-ci.org/glenn-m/promR.svg?branch=master)](https://travis-ci.org/glenn-m/promR)
 [![Coverage
 status](https://codecov.io/gh/glenn-m/promR/branch/master/graph/badge.svg)](https://codecov.io/github/glenn-m/promR?branch=master)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-R library for reading and analysing metrics stored on a Prometheus
-server.
+R library for reading and analysing metrics stored on a
+[Prometheus](https://prometheus.io/) server.
 
 ## Installation
+
+You can install `promR` using
+[`devtools`](https://github.com/r-lib/devtools):
 
 ``` r
 if (requireNamespace("devtools", quietly = TRUE)) {
     devtools::install_github('glenn-m/promR')
 } else {
     install.packages("devtools")
-    devtools::install_github('glenn-m/R')
+    devtools::install_github('glenn-m/promR')
 }
 ```
 
