@@ -11,7 +11,7 @@ test_that(desc = "Timeout must not be a negative number",
 test_that(desc = "Timeout must have the unit of 's', 'h', or 'd' ",
           code = expect_failure(
             expect_error(
-              parse_timeout("-2y"),
+              parse_timeout("2y"),
               "Couldn't identify timeout value. Please use 's', 'm', or 'h'"
             )
           ))
