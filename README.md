@@ -5,6 +5,8 @@
 
 [![Build
 Status](https://travis-ci.org/glenn-m/promR.svg?branch=master)](https://travis-ci.org/glenn-m/promR)
+[![Coverage
+status](https://codecov.io/gh/glenn-m/promR/branch/master/graph/badge.svg)](https://codecov.io/github/glenn-m/promR?branch=master)
 
 R library for reading and analysing metrics stored on a Prometheus
 server.
@@ -55,3 +57,4 @@ metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51
 
   - [Glenn McDonald](https://github.com/glenn-m)
   - [Konrad Zdeb](https://github.com/konradedgar)
+  - [Tyler Littlefield](https://github.com/tyluRp)
