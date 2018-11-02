@@ -10,7 +10,7 @@ test_that(
 )
 
 test_that(
-  desc = "Timeout must have the unit of 's', 'h', or 'd' ",
+  desc = "Timeout must have the unit of 's', 'h', or 'd'",
   code =
     expect_error(
       parse_timeout("2y"),
