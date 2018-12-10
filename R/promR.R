@@ -80,6 +80,8 @@ Prometheus$methods(
   query = function(query,
                    time = NULL,
                    timeout = NULL) {
+    'Run an instant query
+    '
     params <- list(query = query)
 
     # If time is not provided the current server time is used in query
@@ -132,6 +134,8 @@ Prometheus$methods(
 #' }
 Prometheus$methods(
   rangeQuery = function(query, start, end, step, timeout = NULL) {
+    'Query data for a specific range
+    '
     params <- list(
       query = query,
       start = start,

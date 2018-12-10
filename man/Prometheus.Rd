@@ -15,6 +15,13 @@ Reference Class to interface with a Prometheus Server
 \item{\code{port}}{The port number of the Prometheus server}
 }}
 
+\section{Methods}{
+
+\describe{
+\item{\code{query(query, time = NULL, timeout = NULL)}}{Run an instant query}
+
+\item{\code{rangeQuery(query, start, end, step, timeout = NULL)}}{Query data for a specific range}
+}}
 
 \examples{
 prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
