@@ -24,7 +24,7 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-To retrieve the value of the `http_requests_total` metric at `2018-10-26T20:10:51.781Z`
+To retrieve the value of the `go_goroutines` metric for the current time.
 
 ```{r, echo = TRUE}
 library(promR)

@@ -28,8 +28,8 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-To retrieve the value of the `http_requests_total` metric at
-`2018-10-26T20:10:51.781Z`
+To retrieve the value of the `go_goroutines` metric for the current
+time.
 
 ``` r
 library(promR)
@@ -41,10 +41,10 @@ metrics <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m
 
 | X\_\_name\_\_  | instance                      | job          | timestamp  | value |
 | :------------- | :---------------------------- | :----------- | :--------- | :---- |
-| go\_goroutines | demo.robustperception.io:9090 | prometheus   | 1553953160 | 84    |
-| go\_goroutines | demo.robustperception.io:9091 | pushgateway  | 1553953160 | 41    |
-| go\_goroutines | demo.robustperception.io:9093 | alertmanager | 1553953160 | 34    |
-| go\_goroutines | demo.robustperception.io:9100 | node         | 1553953160 | 7     |
+| go\_goroutines | demo.robustperception.io:9090 | prometheus   | 1553953253 | 86    |
+| go\_goroutines | demo.robustperception.io:9091 | pushgateway  | 1553953253 | 40    |
+| go\_goroutines | demo.robustperception.io:9093 | alertmanager | 1553953253 | 34    |
+| go\_goroutines | demo.robustperception.io:9100 | node         | 1553953253 | 8     |
 
 ## Contributing
 
