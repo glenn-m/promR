@@ -3,3 +3,4 @@
 export(Prometheus)
 exportClasses(Prometheus)
 importFrom(methods,new)
+importFrom(stats,setNames)
