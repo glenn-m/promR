@@ -34,18 +34,17 @@ To retrieve the value of the `http_requests_total` metric at
 ``` r
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics <- prom$query(query = "go_goroutines", 
-                      time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+metrics <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
 ```
 
 **Output:**
 
 | X\_\_name\_\_  | instance                      | job          | timestamp  | value |
 | :------------- | :---------------------------- | :----------- | :--------- | :---- |
-| go\_goroutines | demo.robustperception.io:9090 | prometheus   | 1553953021 | 84    |
-| go\_goroutines | demo.robustperception.io:9091 | pushgateway  | 1553953021 | 40    |
-| go\_goroutines | demo.robustperception.io:9093 | alertmanager | 1553953021 | 34    |
-| go\_goroutines | demo.robustperception.io:9100 | node         | 1553953021 | 7     |
+| go\_goroutines | demo.robustperception.io:9090 | prometheus   | 1553953160 | 84    |
+| go\_goroutines | demo.robustperception.io:9091 | pushgateway  | 1553953160 | 41    |
+| go\_goroutines | demo.robustperception.io:9093 | alertmanager | 1553953160 | 34    |
+| go\_goroutines | demo.robustperception.io:9100 | node         | 1553953160 | 7     |
 
 ## Contributing
 
