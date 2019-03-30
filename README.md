@@ -28,23 +28,49 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
+### Current time
+
 To retrieve the value of the `go_goroutines` metric for the current
 time.
 
 ``` r
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+metrics_current <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
 ```
 
 **Output:**
 
-| X\_\_name\_\_  | instance                      | job          | timestamp  | value |
-| :------------- | :---------------------------- | :----------- | :--------- | :---- |
-| go\_goroutines | demo.robustperception.io:9090 | prometheus   | 1553953253 | 86    |
-| go\_goroutines | demo.robustperception.io:9091 | pushgateway  | 1553953253 | 40    |
-| go\_goroutines | demo.robustperception.io:9093 | alertmanager | 1553953253 | 34    |
-| go\_goroutines | demo.robustperception.io:9100 | node         | 1553953253 | 8     |
+| metric         | instance                 | job          | timestamp  | value | port |
+| :------------- | :----------------------- | :----------- | :--------- | :---- | ---: |
+| go\_goroutines | demo.robustperception.io | prometheus   | 1553983853 | 85    | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1553983853 | 40    | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1553983853 | 34    | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1553983853 | 8     | 9100 |
+
+### Range query
+
+``` r
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_range <- prom$rangeQuery(
+  query = "go_goroutines",
+  start = format(Sys.time() - 60,  "%Y-%m-%dT%H:%M:%SZ"),
+  end = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"),
+  step = "10s"
+)
+```
+
+**Output:**
+
+| metric         | instance                 | job        | port | timestamp  | value |
+| :------------- | :----------------------- | :--------- | ---: | :--------- | :---- |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983794 | 83    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983804 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983814 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983824 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983834 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983844 | 85    |
 
 ## Contributing
 
