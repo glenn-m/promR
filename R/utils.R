@@ -1,12 +1,15 @@
-#' Basic arithmetic
+#' @title Various utility functions
+#' @description Utility functions, usually called within the package and not
+#'   exported.
 #'
 #' @name utilities
 NULL
 #> NULL
 
-#' Utility function for checking Prometheus Server response.
+#' @section Checking Prometheus Server response:
+#'   Returns more meanigful error code
 #' @param response  httr response object
-#' @rdname
+#' @rdname utilities
 response_check <- function(response) {
   switch(
     as.character(response$status_code),

@@ -24,16 +24,35 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
+### Current time
+
 To retrieve the value of the `go_goroutines` metric for the current time.
 
-```{r, echo = TRUE}
+```{r current_time_example, echo = TRUE}
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+metrics_current <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
 ```
 **Output:**
-```{r, echo = FALSE, results = 'asis'}
-knitr::kable(head(metrics))
+```{r current_time_results, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics_current))
+```
+
+### Range query
+
+```{r range_query_example, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_range <- prom$rangeQuery(
+  query = "go_goroutines",
+  start = format(Sys.time() - 60,  "%Y-%m-%dT%H:%M:%SZ"),
+  end = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"),
+  step = "10s"
+)
+```
+**Output:**
+```{r range_results, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics_range))
 ```
 
 ## Contributing

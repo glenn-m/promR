@@ -1,4 +1,5 @@
-#' @title Utility function for parsing timeout argument \code{parse_timeout}
+#' @section Utility function for parsing timeout argument \code{parse_timeout}:
+#'   Fixes potentially problematic timeout argument.
 #' @param timeout_val A timeout value assigned by user.
 #' @rdname utilities
 parse_timeout <- function(timeout_val) {
