@@ -2,4 +2,5 @@
 
 export(Prometheus)
 exportClasses(Prometheus)
+importFrom(checkmate,assert_data_frame)
 importFrom(methods,new)

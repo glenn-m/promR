@@ -55,6 +55,7 @@ Prometheus$methods(
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
     }
+    metrics <- format_metrics_data(metrics)
     return(metrics)
   }
 )
@@ -105,6 +106,8 @@ Prometheus$methods(
     metricsRaw <-
       jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
     metrics <- data.frame(metricsRaw$data$result)
+    # Any formatting on the metrics data can take place within this function
+    metrics <- format_metrics_data(metrics)
     return(metrics)
   }
 )
