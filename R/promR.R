@@ -14,7 +14,7 @@ Prometheus <-
 #' @title Prometheus Instant Query
 #' @description Run a instant query against the Prometheus Server
 #' @param query The PromQL query
-#' @param time Evaluation timestamp, can be a rfc3339 or unix timestamp. Optional, defaults to current Prometheus server time.
+#' @param time Evaluation timestamp, can be a rfc3339 or Unix timestamp. Optional, defaults to current Prometheus server time.
 #' @param timeout Evaluation timeout (e.g. 1h, 1.5m or 15s). Optional, defaults to timeout value of the Prometheus server.
 #' @examples
 #' \donttest{
@@ -64,8 +64,8 @@ Prometheus$methods(
 #' @title Promtheus Range Query
 #' @description Run a range query against the Prometheus Server
 #' @param query The PromQL query
-#' @param start Start timestamp, can be a rfc3339 or unix timestamp.
-#' @param end End timestamp, can be a rfc3339 or unix timestamp.
+#' @param start Start timestamp, can be a rfc3339 or Unix timestamp.
+#' @param end End timestamp, can be a rfc3339 or Unix timestamp.
 #' @param step Query resolution step width (e.g. 15s)
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
