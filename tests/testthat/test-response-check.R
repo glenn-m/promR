@@ -4,24 +4,21 @@ test_that(
   desc = "Error is raised if 400 received from server.",
   code = {
     response <- list(status_code = 400)
-  expect_error(response_check(response),
-               "Query parameters are missing or incorrect.")
+    expect_error(response_check(response))
 })
 
 test_that(
   desc = "Error is raised if 422 received from server.",
   code = {
     response <- list(status_code = 422)
-  expect_error(response_check(response),
-               "Expression cannot be executed.")
+    expect_error(response_check(response))
 })
 
 test_that(
   desc = "Error is raised if 503 received from server.",
   code = {
     response <- list(status_code = 503)
-  expect_error(response_check(response),
-               "Query timed out or aborted.")
+    expect_error(response_check(response))
 })
 
 # Test whether package can pull some sample data, only run if connection
@@ -33,7 +30,7 @@ if (requireNamespace(package = "curl", quietly = TRUE)) {
       Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
     dta_tst_metrics <-
       prom$query(query = "go_goroutines",
-                 time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+                 time = as.numeric(as.POSIXct(Sys.time())))
 
     test_that(desc = "Metrics within Prometheus class are data frame.",
               code = expect_is(object = dta_tst_metrics,

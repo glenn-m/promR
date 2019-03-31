@@ -24,14 +24,15 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-### Current time
+### Instant Query
 
-To retrieve the value of the `go_goroutines` metric for the current time.
+To retrieve the value of the `go_goroutines` metric 60 seconds ago.
 
 ```{r current_time_example, echo = TRUE}
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics_current <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+# Timestamps can be in rfc3339 or unix format
+metrics_current <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time() - 60))
 ```
 **Output:**
 ```{r current_time_results, echo = FALSE, results = 'asis'}
@@ -45,8 +46,8 @@ library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
 metrics_range <- prom$rangeQuery(
   query = "go_goroutines",
-  start = format(Sys.time() - 60,  "%Y-%m-%dT%H:%M:%SZ"),
-  end = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"),
+  start = as.numeric(as.POSIXct(Sys.time() - 600)),
+  end = as.numeric(as.POSIXct(Sys.time())),
   step = "10s"
 )
 ```

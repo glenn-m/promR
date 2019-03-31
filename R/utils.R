@@ -13,8 +13,13 @@ NULL
 response_check <- function(response) {
   switch(
     as.character(response$status_code),
-    "400" = stop("Query parameters are missing or incorrect.", call. = FALSE),
-    "422" = stop("Expression cannot be executed.", call. = FALSE),
-    "503" = stop("Query timed out or aborted.", call. = FALSE)
+    "400" = prometheus_err("Query parameters are missing or incorrect", response),
+    "422" = prometheus_err("Expression cannot be executed",response),
+    "503" = prometheus_err("Query timed out or aborted", response)
   )
+}
+
+prometheus_err <- function(error_string, response) {
+  prometheus_error <- jsonlite::fromJSON(httr::content(response, "text"))$error
+  stop(sprintf("%s, %s", error_string, prometheus_error), call. = FALSE)
 }
