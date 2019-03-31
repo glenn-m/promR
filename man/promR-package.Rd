@@ -8,3 +8,20 @@
 \description{
 Package creating Prometheus class.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/glenn-m/promR}
+}
+
+}
+\author{
+\strong{Maintainer}: Glenn McDonald \email{me@glennm.xyz}
+
+Authors:
+\itemize{
+  \item Tyler Littlefield \email{tylurp1@gmail.com}
+  \item Konrad Zdeb \email{konrad.zdeb@me.com}
+}
+
+}

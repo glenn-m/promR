@@ -6,9 +6,9 @@
 \arguments{
 \item{query}{The PromQL query}
 
-\item{start}{Start timestamp, can be a rfc3339 or unix timestamp.}
+\item{start}{Start timestamp, can be a rfc3339 or Unix timestamp.}
 
-\item{end}{End timestamp, can be a rfc3339 or unix timestamp.}
+\item{end}{End timestamp, can be a rfc3339 or Unix timestamp.}
 
 \item{step}{Query resolution step width (e.g. 15s)}
 
@@ -18,7 +18,7 @@
 Run a range query against the Prometheus Server
 }
 \examples{
-\dontrun{
+\donttest{
 prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 rangeMetrics <-
  prom$rangeQuery(

@@ -28,25 +28,49 @@ if (requireNamespace("devtools", quietly = TRUE)) {
 
 ## Usage
 
-To retrieve the value of the `http_requests_total` metric at
-`2018-10-26T20:10:51.781Z`
+### Current time
+
+To retrieve the value of the `go_goroutines` metric for the current
+time.
 
 ``` r
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics <- prom$query(query = "http_requests_total", time = "2018-10-26T20:10:51.781Z")
+metrics_current <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
 ```
 
 **Output:**
 
-| X\_\_name\_\_         | code | handler    | instance                      | job         | method | timestamp      | value   |
-| :-------------------- | :--- | :--------- | :---------------------------- | :---------- | :----- | :------------- | :------ |
-| http\_requests\_total | 200  | prometheus | demo.robustperception.io:9091 | pushgateway | get    | 1540584651.781 | 2280738 |
-| http\_requests\_total | 200  | static     | demo.robustperception.io:9091 | pushgateway | get    | 1540584651.781 | 5745    |
-| http\_requests\_total | 200  | status     | demo.robustperception.io:9091 | pushgateway | get    | 1540584651.781 | 2268    |
-| http\_requests\_total | 202  | delete     | demo.robustperception.io:9091 | pushgateway | delete | 1540584651.781 | 50      |
-| http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | post   | 1540584651.781 | 21      |
-| http\_requests\_total | 202  | push       | demo.robustperception.io:9091 | pushgateway | put    | 1540584651.781 | 142551  |
+| metric         | instance                 | job          | timestamp  | value | port |
+| :------------- | :----------------------- | :----------- | :--------- | :---- | ---: |
+| go\_goroutines | demo.robustperception.io | prometheus   | 1553983853 | 85    | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1553983853 | 40    | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1553983853 | 34    | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1553983853 | 8     | 9100 |
+
+### Range query
+
+``` r
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_range <- prom$rangeQuery(
+  query = "go_goroutines",
+  start = format(Sys.time() - 60,  "%Y-%m-%dT%H:%M:%SZ"),
+  end = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"),
+  step = "10s"
+)
+```
+
+**Output:**
+
+| metric         | instance                 | job        | port | timestamp  | value |
+| :------------- | :----------------------- | :--------- | ---: | :--------- | :---- |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983794 | 83    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983804 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983814 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983824 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983834 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983844 | 85    |
 
 ## Contributing
 

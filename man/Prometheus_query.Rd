@@ -6,7 +6,7 @@
 \arguments{
 \item{query}{The PromQL query}
 
-\item{time}{Evaluation timestamp, can be a rfc3339 or unix timestamp. Optional, defaults to current Prometheus server time.}
+\item{time}{Evaluation timestamp, can be a rfc3339 or Unix timestamp. Optional, defaults to current Prometheus server time.}
 
 \item{timeout}{Evaluation timeout (e.g. 1h, 1.5m or 15s). Optional, defaults to timeout value of the Prometheus server.}
 }
@@ -14,9 +14,9 @@
 Run a instant query against the Prometheus Server
 }
 \examples{
-\dontrun{
-prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
-metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
-metrics <- prom$query(query = "up", time = "1540677062")
+\donttest{
+ prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+ metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
+ metrics <- prom$query(query = "up", time = "1540677062")
 }
 }

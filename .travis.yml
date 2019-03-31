@@ -2,7 +2,25 @@
 
 language: R
 sudo: false
+dist: trusty
 cache: packages
+latex: false
+fortran: false
 
-after_success:
+# Extend travis jobs to account for major R versions
+jobs:
+  include:
+  - r: devel
+    warnings_are_errors: false
+  - r: oldrel
+    warnings_are_errors: false
+  - os: osx
+    warnings_are_errors: false
+  - r: release
+    warnings_are_errors: false
+    after_success:
     - Rscript -e 'covr::codecov()'
+  - r: 3.4
+    warnings_are_errors: false
+  - r: 3.3
+    warnings_are_errors: false

@@ -5,3 +5,4 @@ test_that(desc = "Object of Prometheus class is created",
             object = Prometheus$new(host = "https://foo.bar", port = 9090),
             class = "Prometheus"
           ))
+

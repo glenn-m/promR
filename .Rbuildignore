@@ -3,3 +3,9 @@
 ^\.travis\.yml$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+
+# Exclude readme files
+^README.*$
+
+# Exclude RStudio session log
+sessionInfoLog
