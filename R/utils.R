@@ -20,7 +20,7 @@ response_check <- function(response) {
   switch(
     as.character(response$status_code),
     "400" = prometheus_err("Query parameters are missing or incorrect", response),
-    "422" = prometheus_err("Expression cannot be executed",response),
+    "422" = prometheus_err("Expression cannot be executed", response),
     "503" = prometheus_err("Query timed out or aborted", response)
   )
 }
