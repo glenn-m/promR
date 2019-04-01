@@ -5,12 +5,11 @@ if (requireNamespace(package = "curl", quietly = TRUE)) {
     prom <-
       Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
     metrics <-
-      prom$query(query = "go_goroutines",
-                 time = as.numeric(as.POSIXct(Sys.time())))
+      prom$query(query = "go_goroutines")
     test_that(desc = "Metric names are correct",
               code = expect_named(
                 object = metrics,
-                expected = c("metric", "instance", "job", "timestamp", "value", "port")
+                expected = c("X__name__", "instance", "job", "timestamp", "value", "port")
               ))
   }
 }

@@ -11,6 +11,12 @@ NULL
 #' @param response  httr response object
 #' @rdname utilities
 response_check <- function(response) {
+  # Check that we got a JSON response
+  if (httr::http_type(response) != "application/json") {
+    stop("Prometheus API did not return json", call. = FALSE)
+  }
+
+  # Check we didn't get any error status_code
   switch(
     as.character(response$status_code),
     "400" = prometheus_err("Query parameters are missing or incorrect", response),
