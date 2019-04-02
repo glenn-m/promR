@@ -55,7 +55,7 @@ Prometheus$methods(
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
     }
-    metrics <- format_metrics_current_data(metrics)
+    metrics <- format_metrics_instant_data(metrics)
     return(metrics)
   }
 )
