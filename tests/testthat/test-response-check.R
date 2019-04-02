@@ -1,6 +1,5 @@
 context("Test Prometheus Response Check")
 
-
 test_that(desc = "Error is raised if 400 received from server.",
           code = {
             response <- structure(list(
