@@ -9,23 +9,20 @@ format_metrics_current_data <- function(x) {
                                min.rows = 1,
                                min.cols = 5)
 
-  within.data.frame(data = setNames(
-    object = x,
-    nm = c("metric", "instance", "job", "timestamp", "value")
-  ),
-  expr = {
-    port = as.integer(gsub(
-      pattern = "(.*):(.*)",
-      replacement = "\\2",
-      x = instance
-    ))
+  within(data = x,
+         expr = {
+           port = as.integer(gsub(
+             pattern = "(.*):(.*)",
+             replacement = "\\2",
+             x = instance
+           ))
 
-    instance = gsub(pattern = "(.*):(.*)",
-                    replacement = "\\1",
-                    x = instance)
+           instance = gsub(pattern = "(.*):(.*)",
+                           replacement = "\\1",
+                           x = instance)
 
-    value = trimws(as.integer(value))
-  })
+           value = trimws(as.integer(value))
+         })
 }
 
 
@@ -36,21 +33,18 @@ format_metrics_range_data <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
-  within(data = setNames(
-    object = x$metric,
-    nm = c("metric", "instance", "job")
-  ),
-  expr = {
-    port = as.integer(gsub(
-      pattern = "(.*):(.*)",
-      replacement = "\\2",
-      x = instance
-    ))
+  within(data = x$metric,
+         expr = {
+           port = as.integer(gsub(
+             pattern = "(.*):(.*)",
+             replacement = "\\2",
+             x = instance
+           ))
 
-    instance = gsub(pattern = "(.*):(.*)",
-                    replacement = "\\1",
-                    x = instance)
-  }) -> x_metrics
+           instance = gsub(pattern = "(.*):(.*)",
+                           replacement = "\\1",
+                           x = instance)
+         }) -> x_metrics
 
   lapply(
     X = x$values,
@@ -65,7 +59,7 @@ format_metrics_range_data <- function(x) {
          lapply(
            X = dfs_to_bind,
            FUN = function(dfs) {
-             suppressWarnings(cbind(x_metrics[i,], dfs)) -> x
+             suppressWarnings(cbind(x_metrics[i, ], dfs)) -> x
              i <<- i + 1
              x
            }

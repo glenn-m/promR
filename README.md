@@ -36,17 +36,18 @@ time.
 ``` r
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics_current <- prom$query(query = "go_goroutines", time = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"))
+# Timestamps can be in rfc3339 or unix format
+metrics_current <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time()))
 ```
 
 **Output:**
 
-| metric         | instance                 | job          | timestamp  | value | port |
-| :------------- | :----------------------- | :----------- | :--------- | :---- | ---: |
-| go\_goroutines | demo.robustperception.io | prometheus   | 1553983853 | 85    | 9090 |
-| go\_goroutines | demo.robustperception.io | pushgateway  | 1553983853 | 40    | 9091 |
-| go\_goroutines | demo.robustperception.io | alertmanager | 1553983853 | 34    | 9093 |
-| go\_goroutines | demo.robustperception.io | node         | 1553983853 | 8     | 9100 |
+| metric         | instance                 | job          | timestamp      | value | port |
+| :------------- | :----------------------- | :----------- | :------------- | :---- | ---: |
+| go\_goroutines | demo.robustperception.io | prometheus   | 1554058198.987 | 84    | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1554058198.987 | 40    | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1554058198.987 | 34    | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1554058198.987 | 7     | 9100 |
 
 ### Range query
 
@@ -55,22 +56,22 @@ library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
 metrics_range <- prom$rangeQuery(
   query = "go_goroutines",
-  start = format(Sys.time() - 60,  "%Y-%m-%dT%H:%M:%SZ"),
-  end = format(Sys.time(),  "%Y-%m-%dT%H:%M:%SZ"),
+  start = as.numeric(as.POSIXct(Sys.time() - 600)),
+  end = as.numeric(as.POSIXct(Sys.time())),
   step = "10s"
 )
 ```
 
 **Output:**
 
-| metric         | instance                 | job        | port | timestamp  | value |
-| :------------- | :----------------------- | :--------- | ---: | :--------- | :---- |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983794 | 83    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983804 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983814 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983824 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983834 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1553983844 | 85    |
+| metric         | instance                 | job        | port | timestamp      | value |
+| :------------- | :----------------------- | :--------- | ---: | :------------- | :---- |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057599.149 | 83    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057609.149 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057619.149 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057629.149 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057639.149 | 85    |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554057649.149 | 85    |
 
 ## Contributing
 
