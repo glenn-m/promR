@@ -32,7 +32,7 @@ To retrieve the value of the `go_goroutines` metric 60 seconds ago.
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
 # Timestamps can be in rfc3339 or unix format
-metrics_current <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time() - 60))
+metrics_instant <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time() - 60))
 ```
 **Output:**
 ```{r current_time_results, echo = FALSE, results = 'asis'}

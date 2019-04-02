@@ -18,6 +18,15 @@ test_that(
     )
 )
 
+test_that(
+  desc = "Timeout will error if unable to identify unit",
+  code =
+    expect_error(
+      parse_timeout("2.5"),
+      "Couldn't identify timeout value. Please use 's', 'm', or 'h'."
+    )
+)
+
 test_that(desc = "Timeout gets converted into common unit (s)",
           code =
             expect_equal(parse_timeout("2h"),
