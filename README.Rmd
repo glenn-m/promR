@@ -36,7 +36,7 @@ metrics_instant <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.tim
 ```
 **Output:**
 ```{r current_time_results, echo = FALSE, results = 'asis'}
-knitr::kable(head(metrics_current))
+knitr::kable(head(metrics_instant))
 ```
 
 ### Range query
