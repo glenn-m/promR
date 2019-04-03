@@ -1,10 +1,11 @@
-#' @name Prometheus
 #' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
 #' @exportClass Prometheus
 #' @export Prometheus
 #' @field host The hostname of the Prometheus server
 #' @field port The port number of the Prometheus server
+#' @name Prometheus-class
+#' @rdname Prometheus-class
 #' @examples
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 Prometheus <-
