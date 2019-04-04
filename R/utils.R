@@ -45,7 +45,7 @@ metrics_check <- function(metric) {
         min.cols = 2
       ),
     error = function(e) {
-      stop("Returned metrics object is empty:", e, call. = FALSE)
+      stop("Returned metrics object is empty: ", e, call. = FALSE)
     }
   )
 }
