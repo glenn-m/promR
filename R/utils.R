@@ -10,6 +10,7 @@ NULL
 #'   Returns more meanigful error code
 #' @param response  httr response object
 #' @rdname utilities
+#' @keywords internal
 response_check <- function(response) {
   # Check that we got a JSON response
   if (httr::http_type(response) != "application/json") {
@@ -36,6 +37,7 @@ prometheus_err <- function(error_string, response) {
 #'   period referenced in the query this function will return an error.
 #' @param metrics Generated metrics object
 #' @rdname utilities
+#' @keywords internal
 metrics_check <- function(metric) {
   withCallingHandlers(
     expr =
@@ -48,4 +50,13 @@ metrics_check <- function(metric) {
       stop("Returned metrics object is empty: ", e, call. = FALSE)
     }
   )
+}
+
+
+#' @keywords internal
+#' @rdname utilities
+#' @section Clean metrics object column names
+#' @param metrics Generated metrics object
+clean_metric_names <- function(metric) {
+  return(NULL)
 }
