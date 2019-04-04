@@ -4,10 +4,6 @@
 #' @rdname utilities
 
 format_metrics_instant_data <- function(x) {
-  # Check if passed object is a data frame of required characteristics
-  # checkmate::assert_data_frame(x = x,
-  #                              min.rows = 1,
-  #                              min.cols = 5)
 
   within(data = x,
          expr = {
