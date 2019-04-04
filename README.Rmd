@@ -55,6 +55,22 @@ metrics_range <- prom$rangeQuery(
 ```{r range_results, echo = FALSE, results = 'asis'}
 knitr::kable(head(metrics_range))
 ```
+### Metadata Query
+
+You can query the metadata API of Prometheus to get metadata about the metrics. 
+
+
+#### Get metadata for all Metrics.
+
+```{r metadata_query_example, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job=~"..*"}')
+```
+**Output:**
+```{r metadata_results, echo = FALSE, results = 'asis'}
+head(metrics_metadata)
+```
 
 ## Contributing
 

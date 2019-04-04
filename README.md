@@ -43,10 +43,10 @@ metrics_instant <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.tim
 
 | X\_\_name\_\_  | instance                 | job          | timestamp      | value | port |
 | :------------- | :----------------------- | :----------- | :------------- | :---- | ---: |
-| go\_goroutines | demo.robustperception.io | prometheus   | 1554235843.452 | 87    | 9090 |
-| go\_goroutines | demo.robustperception.io | pushgateway  | 1554235843.452 | 40    | 9091 |
-| go\_goroutines | demo.robustperception.io | alertmanager | 1554235843.452 | 34    | 9093 |
-| go\_goroutines | demo.robustperception.io | node         | 1554235843.452 | 8     | 9100 |
+| go\_goroutines | demo.robustperception.io | prometheus   | 1554361300.944 | 99    | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1554361300.944 | 40    | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1554361300.944 | 35    | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1554361300.944 | 7     | 9100 |
 
 ### Range query
 
@@ -63,14 +63,48 @@ metrics_range <- prom$rangeQuery(
 
 **Output:**
 
-| **name**       | instance                 | job        | port | timestamp      | value |
-| :------------- | :----------------------- | :--------- | ---: | :------------- | :---- |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235303.644 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235313.644 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235323.644 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235333.644 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235343.644 | 85    |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1554235353.644 | 85    |
+| **name**            | instance                 | job        | port | timestamp      | value |
+| :------------------ | :----------------------- | :--------- | ---: | :------------- | :---- |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360761.112 | 92    |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360771.112 | 92    |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360781.112 | 92    |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360791.112 | 92    |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360801.112 | 92    |
+| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360811.112 | 92    |
+| \#\#\# Metadata Que | ry                       |            |      |                |       |
+
+You can query the metadata API of Prometheus to get metadata about the
+metrics.
+
+#### Get metadata for all Metrics.
+
+``` r
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job=~"..*"}')
+```
+
+**Output:** target.instance target.job 1 demo.robustperception.io:9093
+alertmanager 2 demo.robustperception.io:9093 alertmanager 3
+demo.robustperception.io:9093 alertmanager 4
+demo.robustperception.io:9093 alertmanager 5
+demo.robustperception.io:9093 alertmanager 6
+demo.robustperception.io:9093 alertmanager metric type 1
+alertmanager\_cluster\_failed\_peers gauge 2
+alertmanager\_nflog\_query\_duration\_seconds histogram 3 go\_info gauge
+4 go\_memstats\_gc\_sys\_bytes gauge 5
+net\_conntrack\_dialer\_conn\_failed\_total counter 6
+process\_cpu\_seconds\_total counter help 1 Number indicating the
+current number of failed peers in the cluster. 2 Duration of
+notification log query evaluation. 3 Information about the Go
+environment. 4 Number of bytes used for garbage collection system
+metadata. 5 Total number of connections failed to dial by the dialer a
+given name. 6 Total user and system CPU time spent in seconds. unit 1  
+2  
+3  
+4  
+5  
+6
 
 ## Contributing
 

@@ -112,3 +112,32 @@ Prometheus$methods(
     return(metrics)
   }
 )
+
+#' @name Prometheus_metadataQuery
+#' @title Promtheus Metadata Query
+#' @description Run a metadata query against the Prometheus Server
+#' @param match_target The arguement to match metrics against.
+#' @param metric The metric to retrieve metadata for. Optional.
+#' @param limit The number of results of targets to return.
+#' @examples
+#' \donttest{
+#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' metadata <- prom$metadataQuery(match_target = '{job=~"..*"}', metric = 'go_goroutines')
+Prometheus$methods(
+  metadataQuery = function(match_target, metric = NULL, limit = NULL) {
+    params <- list(
+      match_target = match_target,
+      metric = metric,
+      limit = limit
+    )
+    r <-
+      httr::GET(paste0(c(host, ":", port, "/api/v1/targets/metadata"), collapse = ""),
+                query = params)
+
+    # Check for particular status codes in response
+    response_check(r)
+
+    target_metadata <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
+    return(target_metadata$data)
+  }
+)
