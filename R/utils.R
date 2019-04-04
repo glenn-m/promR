@@ -26,6 +26,26 @@ response_check <- function(response) {
 }
 
 prometheus_err <- function(error_string, response) {
-  prometheus_error <- jsonlite::fromJSON(httr::content(response, "text"))$error
+  prometheus_error <-
+    jsonlite::fromJSON(httr::content(response, "text"))$error
   stop(sprintf("%s, %s", error_string, prometheus_error), call. = FALSE)
+}
+
+#' @section Check Metrics Object:
+#'   Check if metrics objects contains data. If there is no data for time
+#'   period referenced in the query this function will return an error.
+#' @param metrics Generated metrics object
+#' @rdname utilities
+metrics_check <- function(metric) {
+  withCallingHandlers(
+    expr =
+      checkmate::assert_data_frame(
+        x = metric,
+        min.rows = 1,
+        min.cols = 2
+      ),
+    error = function(e) {
+      stop("Returned metrics object is empty: ", e, call. = FALSE)
+    }
+  )
 }

@@ -94,3 +94,6 @@ if (requireNamespace(package = "curl", quietly = TRUE)) {
                                expected = 2))
   }
 }
+
+
+# Use with_mock to check that error is generated if
