@@ -52,6 +52,7 @@ Prometheus$methods(
     metricsRaw <-
       jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
     metrics <- data.frame(metricsRaw$data$result$metric)
+    metrics_check(metrics)
     for (row in 1:nrow(metrics)) {
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
