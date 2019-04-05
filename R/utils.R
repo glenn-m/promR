@@ -58,5 +58,5 @@ metrics_check <- function(metric) {
 #' @section Clean metrics object column names
 #' @param metrics Generated metrics object
 clean_metric_names <- function(metric) {
-  return(NULL)
+  column_names <- names(metric)
 }
