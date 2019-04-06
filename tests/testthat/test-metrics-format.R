@@ -36,3 +36,6 @@ test_that(desc = "Range metrics are not empty",
 #               ))
 #   }
 # }
+
+# Create response-like objects
+
