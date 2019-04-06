@@ -27,7 +27,17 @@ test_that(
     )
 )
 
-test_that(desc = "Timeout gets converted into common unit (s)",
+test_that(desc = "Timeout gets converted into common unit (h to s).",
           code =
             expect_equal(parse_timeout("2h"),
                          7200))
+
+test_that(desc = "Timeout gets converted into common unit (m to s).",
+          code =
+            expect_equal(parse_timeout("60m"),
+                         3600))
+
+test_that(desc = "Timeout gets converted into common unit (s to s).",
+          code =
+            expect_equal(parse_timeout("30s"),
+                         30))
