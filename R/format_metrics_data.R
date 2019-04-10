@@ -55,7 +55,7 @@ format_metrics_range_data <- function(x) {
          lapply(
            X = dfs_to_bind,
            FUN = function(dfs) {
-             suppressWarnings(cbind(x_metrics[i, ], dfs)) -> x
+             x <- suppressWarnings(cbind(x_metrics[i, ], dfs))
              i <<- i + 1
              x
            }
