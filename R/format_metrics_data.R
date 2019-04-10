@@ -29,7 +29,7 @@ format_metrics_range_data <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
-  within(data = x$metric,
+  x_metrics <- within(data = x$metric,
          expr = {
            port = as.integer(gsub(
              pattern = "(.*):(.*)",
@@ -40,15 +40,15 @@ format_metrics_range_data <- function(x) {
            instance = gsub(pattern = "(.*):(.*)",
                            replacement = "\\1",
                            x = instance)
-         }) -> x_metrics
+         })
 
-  lapply(
+  dfs_to_bind <- lapply(
     X = x$values,
     FUN = function(value_pair) {
       setNames(object = as.data.frame(value_pair),
                nm = c("timestamp", "value")) -> df_ts_val
     }
-  ) -> dfs_to_bind
+  )
 
   i <- 1
   Reduce(rbind,
