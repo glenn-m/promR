@@ -4,7 +4,8 @@
 #' @rdname utilities
 
 format_metrics_instant_data <- function(x) {
-
+  # Clean column names
+  x <- rename_metrics_data_frame(x)
   within(data = x,
          expr = {
            port = as.integer(gsub(
@@ -29,18 +30,20 @@ format_metrics_range_data <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
+  # Clean column names
+  x <- rename_metrics_data_frame(x)
   x_metrics <- within(data = x$metric,
-         expr = {
-           port = as.integer(gsub(
-             pattern = "(.*):(.*)",
-             replacement = "\\2",
-             x = instance
-           ))
+                      expr = {
+                        port = as.integer(gsub(
+                          pattern = "(.*):(.*)",
+                          replacement = "\\2",
+                          x = instance
+                        ))
 
-           instance = gsub(pattern = "(.*):(.*)",
-                           replacement = "\\1",
-                           x = instance)
-         })
+                        instance = gsub(pattern = "(.*):(.*)",
+                                        replacement = "\\1",
+                                        x = instance)
+                      })
 
   dfs_to_bind <- lapply(
     X = x$values,
@@ -55,11 +58,35 @@ format_metrics_range_data <- function(x) {
          lapply(
            X = dfs_to_bind,
            FUN = function(dfs) {
-             x <- suppressWarnings(cbind(x_metrics[i, ], dfs))
+             x <- suppressWarnings(cbind(x_metrics[i,], dfs))
              i <<- i + 1
              x
            }
          )) -> res
 
   return(res)
+}
+
+#' @section Utility function cleaning column names:
+#'   As there is no clarity with respect to the returned columns the function:
+#'   \itemize{
+#'     \item Chaneges names of known columns like \code{name}
+#'     \item Removes special characters from all columns
+#'   }
+#' @rdname utilities
+rename_metrics_data_frame <- function(x) {
+  x_names <- names(x)
+  if (is.null(x_names)) {
+    return(NULL)
+  }
+  # For columns of known values run replacements
+  clean_names <- do.call(what = 'gsub',
+                        args = list(
+                          x = x_names,
+                          pattern = c(".*name.*"),
+                          replacement = c("name")
+                        ))
+  # Set names on X
+  x <- setNames(object = x, nm = clean_names)
+  return(x)
 }

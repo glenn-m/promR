@@ -4,6 +4,7 @@
 \name{format_metrics_instant_data}
 \alias{format_metrics_instant_data}
 \alias{format_metrics_range_data}
+\alias{rename_metrics_data_frame}
 \alias{parse_timeout}
 \alias{utilities}
 \alias{response_check}
@@ -14,6 +15,8 @@
 format_metrics_instant_data(x)
 
 format_metrics_range_data(x)
+
+rename_metrics_data_frame(x)
 
 parse_timeout(timeout_val)
 
@@ -46,6 +49,15 @@ Utility functions, usually called within the package and not
 \section{Utility function for parsing range metrics output}{
 
   Formats metrics data passed by range query.
+}
+
+\section{Utility function cleaning column names}{
+
+  As there is no clarity with respect to the returned columns the function:
+  \itemize{
+    \item Chaneges names of known columns like \code{name}
+    \item Removes special characters from all columns
+  }
 }
 
 \section{Utility function for parsing timeout argument \code{parse_timeout}}{
