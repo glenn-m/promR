@@ -79,7 +79,7 @@ rename_metrics_data_frame <- function(x) {
   if (is.null(x_names)) {
     return(NULL)
   }
-  # For columns of known values run replacements
+  # For columns of known messy values provide replacements
   clean_names <- do.call(what = 'gsub',
                         args = list(
                           x = x_names,
