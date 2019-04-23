@@ -1,6 +1,6 @@
 ---
 title: "Basic Usage"
-author: "Vignette Author"
+author: "Konrad Zdeb"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,6 +16,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-Prometheus is an open-source software project recording real-time metrics using HTTP pull model [^1].
+Prometheus is an open-source software project recording real-time metrics using HTTP pull model [^1]. Prometheus records metrics in a time series database and allows for high-dimensionality. 
+
+## Queries
+
+The `promR` package offers `Promethous` class that provides two methods of sourcing data:
+ - 
+
+### Instant
 
 [^1]: For a detailed overview of the project refer to the project website [https://prometheus.io/](https://prometheus.io/).
