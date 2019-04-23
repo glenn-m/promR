@@ -20,7 +20,7 @@ LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
     covr,
-    knitr,
+    knitr (>= 1.22),
     rmarkdown,
     testthat
 VignetteBuilder: knitr
