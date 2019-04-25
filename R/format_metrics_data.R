@@ -58,7 +58,7 @@ format_metrics_range_data <- function(x) {
          lapply(
            X = dfs_to_bind,
            FUN = function(dfs) {
-             x <- suppressWarnings(cbind(x_metrics[i,], dfs))
+             x <- suppressWarnings(cbind(x_metrics[i, ], dfs))
              i <<- i + 1
              x
            }
@@ -81,12 +81,38 @@ rename_metrics_data_frame <- function(x) {
   }
   # For columns of known messy values provide replacements
   clean_names <- do.call(what = 'gsub',
-                        args = list(
-                          x = x_names,
-                          pattern = c(".*name.*"),
-                          replacement = c("name")
-                        ))
+                         args = list(
+                           x = x_names,
+                           pattern = c(".*name.*"),
+                           replacement = c("name")
+                         ))
   # Set names on X
   x <- setNames(object = x, nm = clean_names)
   return(x)
+}
+
+
+#' @section Utility function used to destring value column:
+#'   The \code{value} columns should always contain numerical values, the
+#'   function ensures that those are returned as of \code{numeric} type.
+#' @rdname utilities
+destring <- function(x) {
+  withCallingHandlers(
+    expr = {
+      if (is.character(x)) {
+        as.numeric(x)
+      } else if (is.factor(x)) {
+        as.numeric(levels(x))[x]
+      } else if (is.numeric(x)) {
+        x
+      }
+    },
+    warning = function(w) {
+      if (startsWith(conditionMessage(w), "NAs introduced by")) {
+        invokeRestart("muffleWarning")
+        cat("Not all received values were numeric:",
+            conditionMessage(w))
+      }
+    }
+  )
 }
