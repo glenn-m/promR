@@ -18,7 +18,7 @@ format_metrics_instant_data <- function(x) {
                            replacement = "\\1",
                            x = instance)
 
-           value = trimws(as.integer(value))
+           value = destring(value)
          })
 }
 
@@ -54,7 +54,7 @@ format_metrics_range_data <- function(x) {
   )
 
   i <- 1
-  Reduce(rbind,
+  res <- Reduce(rbind,
          lapply(
            X = dfs_to_bind,
            FUN = function(dfs) {
@@ -62,8 +62,9 @@ format_metrics_range_data <- function(x) {
              i <<- i + 1
              x
            }
-         )) -> res
+         ))
 
+  res$value <- destring(value)
   return(res)
 }
 
