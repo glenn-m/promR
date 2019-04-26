@@ -51,12 +51,3 @@ metrics_check <- function(metric) {
     }
   )
 }
-
-
-#' @keywords internal
-#' @rdname utilities
-#' @section Clean metrics object column names
-#' @param metrics Generated metrics object
-clean_metric_names <- function(metric) {
-  column_names <- names(metric)
-}
