@@ -55,16 +55,20 @@ format_metrics_range_data <- function(x) {
 
   i <- 1
   res <- Reduce(rbind,
-         lapply(
-           X = dfs_to_bind,
-           FUN = function(dfs) {
-             x <- suppressWarnings(cbind(x_metrics[i, ], dfs))
-             i <<- i + 1
-             x
-           }
-         ))
+                lapply(
+                  X = dfs_to_bind,
+                  FUN = function(dfs) {
+                    x <- suppressWarnings(cbind(x_metrics[i,], dfs))
+                    i <<- i + 1
+                    x
+                  }
+                ))
 
-  res$value <- destring(value)
+  res <- within(data = res,
+                expr = {
+                  value = destring(value)
+                })
+
   return(res)
 }
 
