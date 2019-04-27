@@ -12,3 +12,6 @@ sessionInfoLog
 
 # Exclude vignette cache
 .*_cache/$
+
+# Excluded pkgdown website
+^docs/$
