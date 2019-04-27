@@ -11,6 +11,10 @@ test_that(desc = "Instant metrics are not empty",
           code = expect_gte(object = nrow(metrics_current),
                             expected = 2))
 
+test_that(desc = "Error is generated for non-data-frame",
+          code = expect_error(object = format_metrics_range_data(x = 1),
+                              regexp = "^Assertion on \\'x\\'\\sfailed:"))
+
 # Source, response-like objects
 test_that(desc = "Column __name__ in data frame is renamed to name",
           code = expect_named(
