@@ -82,7 +82,7 @@ format_metrics_range_data <- function(x) {
 rename_metrics_data_frame <- function(x) {
   x_names <- names(x)
   if (is.null(x_names)) {
-    return(NULL)
+    return(x)
   }
   # For columns of known messy values provide replacements
   clean_names <- do.call(what = 'gsub',
