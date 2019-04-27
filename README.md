@@ -41,14 +41,14 @@ metrics_instant <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.tim
 
 **Output:**
 
-| X\_\_name\_\_  | instance                 | job          | timestamp      | value | port |
-| :------------- | :----------------------- | :----------- | :------------- | :---- | ---: |
-| go\_goroutines | demo.robustperception.io | prometheus   | 1554361300.944 | 99    | 9090 |
-| go\_goroutines | demo.robustperception.io | pushgateway  | 1554361300.944 | 40    | 9091 |
-| go\_goroutines | demo.robustperception.io | alertmanager | 1554361300.944 | 35    | 9093 |
-| go\_goroutines | demo.robustperception.io | node         | 1554361300.944 | 7     | 9100 |
+| name           | instance                 | job          | timestamp      | value | port |
+| :------------- | :----------------------- | :----------- | :------------- | ----: | ---: |
+| go\_goroutines | demo.robustperception.io | prometheus   | 1556402510.823 |    93 | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1556402510.823 |    43 | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1556402510.823 |    34 | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1556402510.823 |    10 | 9100 |
 
-### Range query
+### Range Query
 
 ``` r
 library(promR)
@@ -63,48 +63,54 @@ metrics_range <- prom$rangeQuery(
 
 **Output:**
 
-| **name**            | instance                 | job        | port | timestamp      | value |
-| :------------------ | :----------------------- | :--------- | ---: | :------------- | :---- |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360761.112 | 92    |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360771.112 | 92    |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360781.112 | 92    |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360791.112 | 92    |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360801.112 | 92    |
-| go\_goroutines      | demo.robustperception.io | prometheus | 9090 | 1554360811.112 | 92    |
-| \#\#\# Metadata Que | ry                       |            |      |                |       |
+| **name**       | instance                 | job        | port | timestamp      | value |
+| :------------- | :----------------------- | :--------- | ---: | :------------- | ----: |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556401970.999 |    97 |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556401980.999 |    96 |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556401990.999 |    96 |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556402000.999 |    96 |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556402010.999 |    96 |
+| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1556402020.999 |    96 |
 
-You can query the metadata API of Prometheus to get metadata about the
-metrics.
+### Metadata Query
 
-#### Get metadata for all Metrics.
+#### Get metadata for all node exporter metrics.
 
 ``` r
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics_metadata <- prom$metadataQuery(match_target = '{job=~"..*"}')
+metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
 ```
 
-**Output:** target.instance target.job 1 demo.robustperception.io:9093
-alertmanager 2 demo.robustperception.io:9093 alertmanager 3
-demo.robustperception.io:9093 alertmanager 4
-demo.robustperception.io:9093 alertmanager 5
-demo.robustperception.io:9093 alertmanager 6
-demo.robustperception.io:9093 alertmanager metric type 1
-alertmanager\_cluster\_failed\_peers gauge 2
-alertmanager\_nflog\_query\_duration\_seconds histogram 3 go\_info gauge
-4 go\_memstats\_gc\_sys\_bytes gauge 5
-net\_conntrack\_dialer\_conn\_failed\_total counter 6
-process\_cpu\_seconds\_total counter help 1 Number indicating the
-current number of failed peers in the cluster. 2 Duration of
-notification log query evaluation. 3 Information about the Go
-environment. 4 Number of bytes used for garbage collection system
-metadata. 5 Total number of connections failed to dial by the dialer a
-given name. 6 Total user and system CPU time spent in seconds. unit 1  
-2  
-3  
-4  
-5  
-6
+**Output:**
+
+| metric                                    | type    | help                                                     | unit | instance                      | job  |
+| :---------------------------------------- | :------ | :------------------------------------------------------- | :--- | :---------------------------- | :--- |
+| node\_timex\_pps\_shift\_seconds          | gauge   | Pulse per second interval duration.                      |      | demo.robustperception.io:9100 | node |
+| process\_virtual\_memory\_max\_bytes      | gauge   | Maximum amount of virtual memory available in bytes.     |      | demo.robustperception.io:9100 | node |
+| node\_network\_receive\_compressed\_total | counter | Network device statistic receive\_compressed.            |      | demo.robustperception.io:9100 | node |
+| node\_network\_carrier\_changes\_total    | counter | carrier\_changes\_total value of /sys/class/net/<iface>. |      | demo.robustperception.io:9100 | node |
+| node\_vmstat\_pgpgout                     | unknown | /proc/vmstat information field pgpgout.                  |      | demo.robustperception.io:9100 | node |
+| node\_vmstat\_pswpout                     | unknown | /proc/vmstat information field pswpout.                  |      | demo.robustperception.io:9100 | node |
+
+### Get metadata for all metrics.
+
+``` r
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job=~".+"}')
+```
+
+**Output:**
+
+| metric                           | type    | help                                                    | unit | instance                      | job  |
+| :------------------------------- | :------ | :------------------------------------------------------ | :--- | :---------------------------- | :--- |
+| go\_memstats\_alloc\_bytes       | gauge   | Number of bytes allocated and still in use.             |      | demo.robustperception.io:9100 | node |
+| node\_timex\_pps\_jitter\_total  | counter | Pulse per second count of jitter limit exceeded events. |      | demo.robustperception.io:9100 | node |
+| go\_threads                      | gauge   | Number of OS threads created.                           |      | demo.robustperception.io:9100 | node |
+| node\_cpu\_guest\_seconds\_total | counter | Seconds the cpus spent in guests (VMs) for each mode.   |      | demo.robustperception.io:9100 | node |
+| node\_memory\_CmaFree\_bytes     | gauge   | Memory information field CmaFree\_bytes.                |      | demo.robustperception.io:9100 | node |
+| node\_netstat\_Tcp\_RetransSegs  | unknown | Statistic TcpRetransSegs.                               |      | demo.robustperception.io:9100 | node |
 
 ## Contributing
 

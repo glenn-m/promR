@@ -95,5 +95,50 @@ if (requireNamespace(package = "curl", quietly = TRUE)) {
   }
 }
 
+if (requireNamespace(package = "curl", quietly = TRUE)) {
+  if (curl::has_internet()) {
+    # Source query data once to use later across tests
+    prom <-
+      Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+    dta_tst_metrics <-
+      prom$rangeQuery(
+        query = "go_goroutines",
+        start = as.numeric(as.POSIXct(Sys.time() - 600)),
+        end = as.numeric(as.POSIXct(Sys.time())),
+        step = "10s")
 
-# Use with_mock to check that error is generated if
+    test_that(desc = "Metrics within Prometheus class are data frame.",
+              code = expect_is(object = dta_tst_metrics,
+                               class = "data.frame"))
+
+    test_that(desc = "Metrics data frame has some columns.",
+              code = expect_gt(object = ncol(dta_tst_metrics),
+                               expected = 2))
+
+    test_that(desc = "Metrics data frame has some rows.",
+              code = expect_gt(object = nrow(dta_tst_metrics),
+                               expected = 2))
+  }
+}
+
+if (requireNamespace(package = "curl", quietly = TRUE)) {
+  if (curl::has_internet()) {
+    # Source query data once to use later across tests
+    prom <-
+      Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+    dta_tst_metrics <-
+      prom$metadataQuery(match_target = '{job="node"}')
+
+    test_that(desc = "Metrics within Prometheus class are data frame.",
+              code = expect_is(object = dta_tst_metrics,
+                               class = "data.frame"))
+
+    test_that(desc = "Metrics data frame has some columns.",
+              code = expect_gt(object = ncol(dta_tst_metrics),
+                               expected = 2))
+
+    test_that(desc = "Metrics data frame has some rows.",
+              code = expect_gt(object = nrow(dta_tst_metrics),
+                               expected = 2))
+  }
+}

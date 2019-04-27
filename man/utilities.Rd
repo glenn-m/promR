@@ -4,6 +4,10 @@
 \name{format_metrics_instant_data}
 \alias{format_metrics_instant_data}
 \alias{format_metrics_range_data}
+\alias{format_metadata}
+\alias{rename_metadata_data_frame}
+\alias{rename_metrics_data_frame}
+\alias{destring}
 \alias{parse_timeout}
 \alias{utilities}
 \alias{response_check}
@@ -13,6 +17,14 @@
 format_metrics_instant_data(x)
 
 format_metrics_range_data(x)
+
+format_metadata(x)
+
+rename_metadata_data_frame(x)
+
+rename_metrics_data_frame(x)
+
+destring(x)
 
 parse_timeout(timeout_val)
 
@@ -43,6 +55,33 @@ Utility functions, usually called within the package and not
   Formats metrics data passed by range query.
 }
 
+\section{Utility function for parsing metadata output}{
+
+  Formats data passed by metadata query.
+}
+
+\section{Utility function cleaning column names}{
+
+  As there is no clarity with respect to the returned columns the function:
+  \itemize{
+    \item Changes names of known columns like \code{target.instance, target.job}
+    \item Removes special characters from all columns
+  }
+
+
+  As there is no clarity with respect to the returned columns the function:
+  \itemize{
+    \item Changes names of known columns like \code{name}
+    \item Removes special characters from all columns
+  }
+}
+
+\section{Utility function used to destring value column}{
+
+  The \code{value} columns should always contain numerical values, the
+  function ensures that those are returned as of \code{numeric} type.
+}
+
 \section{Utility function for parsing timeout argument \code{parse_timeout}}{
 
   Fixes potentially problematic timeout argument.
@@ -59,3 +98,4 @@ Utility functions, usually called within the package and not
   period referenced in the query this function will return an error.
 }
 
+\keyword{internal}

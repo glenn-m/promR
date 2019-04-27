@@ -13,11 +13,11 @@ jobs:
   - r: devel
     warnings_are_errors: false
   - r: oldrel
-    warnings_are_errors: false
+    warnings_are_errors: true
   - os: osx
-    warnings_are_errors: false
+    warnings_are_errors: true
   - r: release
-    warnings_are_errors: false
+    warnings_are_errors: true
     after_success:
     - Rscript -e 'covr::codecov()'
   - r: 3.4

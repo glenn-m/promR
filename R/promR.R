@@ -124,6 +124,7 @@ Prometheus$methods(
 #' \donttest{
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #' metadata <- prom$metadataQuery(match_target = '{job=~"..*"}', metric = 'go_goroutines')
+#' }
 Prometheus$methods(
   metadataQuery = function(match_target, metric = NULL, limit = NULL) {
     params <- list(
@@ -138,7 +139,8 @@ Prometheus$methods(
     # Check for particular status codes in response
     response_check(r)
 
-    target_metadata <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
-    return(target_metadata$data)
+    target_metadata <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"), flatten = TRUE)
+    metadata <- format_metadata(target_metadata$data)
+    return(metadata)
   }
 )

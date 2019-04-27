@@ -39,7 +39,7 @@ metrics_instant <- prom$query(query = "go_goroutines", time = as.POSIXct(Sys.tim
 knitr::kable(head(metrics_instant))
 ```
 
-### Range query
+### Range Query
 
 ```{r range_query_example, echo = TRUE}
 library(promR)
@@ -55,21 +55,31 @@ metrics_range <- prom$rangeQuery(
 ```{r range_results, echo = FALSE, results = 'asis'}
 knitr::kable(head(metrics_range))
 ```
+
 ### Metadata Query
 
-You can query the metadata API of Prometheus to get metadata about the metrics. 
-
-
-#### Get metadata for all Metrics.
+#### Get metadata for all node exporter metrics.
 
 ```{r metadata_query_example, echo = TRUE}
 library(promR)
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-metrics_metadata <- prom$metadataQuery(match_target = '{job=~"..*"}')
+metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
 ```
 **Output:**
 ```{r metadata_results, echo = FALSE, results = 'asis'}
-head(metrics_metadata)
+knitr::kable(head(metrics_metadata))
+```
+
+### Get metadata for all metrics.
+
+```{r metadata_query_example2, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job=~".+"}')
+```
+**Output:**
+```{r metadata_results2, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics_metadata))
 ```
 
 ## Contributing

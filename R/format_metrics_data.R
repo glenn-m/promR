@@ -4,7 +4,8 @@
 #' @rdname utilities
 
 format_metrics_instant_data <- function(x) {
-
+  # Clean column names
+  x <- rename_metrics_data_frame(x)
   within(data = x,
          expr = {
            port = as.integer(gsub(
@@ -17,7 +18,7 @@ format_metrics_instant_data <- function(x) {
                            replacement = "\\1",
                            x = instance)
 
-           value = trimws(as.integer(value))
+           value = destring(value)
          })
 }
 
@@ -29,37 +30,131 @@ format_metrics_range_data <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
-  within(data = x$metric,
-         expr = {
-           port = as.integer(gsub(
-             pattern = "(.*):(.*)",
-             replacement = "\\2",
-             x = instance
-           ))
+  # Clean column names
+  x <- rename_metrics_data_frame(x)
+  x_metrics <- within(data = x$metric,
+                      expr = {
+                        port = as.integer(gsub(
+                          pattern = "(.*):(.*)",
+                          replacement = "\\2",
+                          x = instance
+                        ))
 
-           instance = gsub(pattern = "(.*):(.*)",
-                           replacement = "\\1",
-                           x = instance)
-         }) -> x_metrics
+                        instance = gsub(pattern = "(.*):(.*)",
+                                        replacement = "\\1",
+                                        x = instance)
+                      })
 
-  lapply(
+  dfs_to_bind <- lapply(
     X = x$values,
     FUN = function(value_pair) {
       setNames(object = as.data.frame(value_pair),
                nm = c("timestamp", "value")) -> df_ts_val
     }
-  ) -> dfs_to_bind
+  )
 
   i <- 1
-  Reduce(rbind,
-         lapply(
-           X = dfs_to_bind,
-           FUN = function(dfs) {
-             suppressWarnings(cbind(x_metrics[i, ], dfs)) -> x
-             i <<- i + 1
-             x
-           }
-         )) -> res
+  res <- Reduce(rbind,
+                lapply(
+                  X = dfs_to_bind,
+                  FUN = function(dfs) {
+                    x <- suppressWarnings(cbind(x_metrics[i,], dfs))
+                    i <<- i + 1
+                    x
+                  }
+                ))
+
+  res <- within(data = res,
+                expr = {
+                  value = destring(value)
+                })
 
   return(res)
+}
+
+#' @section Utility function for parsing metadata output:
+#'   Formats data passed by metadata query.
+#' @rdname utilities
+format_metadata <- function(x) {
+  checkmate::assert_data_frame(x = x,
+                               min.rows = 1,
+                               min.cols = 2)
+  res <- rename_metadata_data_frame(x)
+  return(res)
+}
+
+#' @section Utility function cleaning column names:
+#'   As there is no clarity with respect to the returned columns the function:
+#'   \itemize{
+#'     \item Changes names of known columns like \code{target.instance, target.job}
+#'     \item Removes special characters from all columns
+#'   }
+#' @rdname utilities
+rename_metadata_data_frame <- function(x) {
+  # For columns of known messy values provide replacements
+  clean_names <- do.call(what = 'gsub',
+                         args = list(
+                           x = names(x),
+                           pattern = c(".*instance.*"),
+                           replacement = c("instance")
+                         ))
+
+  clean_names <- do.call(what = 'gsub',
+                         args = list(
+                           x = clean_names,
+                           pattern = c(".*job.*"),
+                           replacement = c("job")
+                         ))
+  # Set names on X
+  x <- setNames(object = x, nm = clean_names)
+  return(x)
+}
+
+#' @section Utility function cleaning column names:
+#'   As there is no clarity with respect to the returned columns the function:
+#'   \itemize{
+#'     \item Changes names of known columns like \code{name}
+#'     \item Removes special characters from all columns
+#'   }
+#' @rdname utilities
+rename_metrics_data_frame <- function(x) {
+  x_names <- names(x)
+  if (is.null(x_names)) {
+    return(NULL)
+  }
+  # For columns of known messy values provide replacements
+  clean_names <- do.call(what = 'gsub',
+                         args = list(
+                           x = x_names,
+                           pattern = c(".*name.*"),
+                           replacement = c("name")
+                         ))
+  # Set names on X
+  x <- setNames(object = x, nm = clean_names)
+  return(x)
+}
+
+#' @section Utility function used to destring value column:
+#'   The \code{value} columns should always contain numerical values, the
+#'   function ensures that those are returned as of \code{numeric} type.
+#' @rdname utilities
+destring <- function(x) {
+  withCallingHandlers(
+    expr = {
+      if (is.character(x)) {
+        as.numeric(x)
+      } else if (is.factor(x)) {
+        as.numeric(levels(x))[x]
+      } else if (is.numeric(x)) {
+        x
+      }
+    },
+    warning = function(w) {
+      if (startsWith(conditionMessage(w), "NAs introduced by")) {
+        invokeRestart("muffleWarning")
+        cat("Not all received values were numeric:",
+            conditionMessage(w))
+      }
+    }
+  )
 }
