@@ -56,6 +56,32 @@ metrics_range <- prom$rangeQuery(
 knitr::kable(head(metrics_range))
 ```
 
+### Metadata Query
+
+#### Get metadata for all node exporter metrics.
+
+```{r metadata_query_example, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
+```
+**Output:**
+```{r metadata_results, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics_metadata))
+```
+
+### Get metadata for all metrics.
+
+```{r metadata_query_example2, echo = TRUE}
+library(promR)
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+metrics_metadata <- prom$metadataQuery(match_target = '{job=~".+"}')
+```
+**Output:**
+```{r metadata_results2, echo = FALSE, results = 'asis'}
+knitr::kable(head(metrics_metadata))
+```
+
 ## Contributing
 
 1.  Fork it ( https://github.com/glenn-m/promR/fork )

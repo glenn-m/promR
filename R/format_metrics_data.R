@@ -72,10 +72,50 @@ format_metrics_range_data <- function(x) {
   return(res)
 }
 
+#' @section Utility function for parsing metadata output:
+#'   Formats data passed by metadata query.
+#' @rdname utilities
+format_metadata <- function(x) {
+  checkmate::assert_data_frame(x = x,
+                               min.rows = 1,
+                               min.cols = 2)
+
+  res <- rename_metadata_data_frame(x)
+
+  return(res)
+}
+
 #' @section Utility function cleaning column names:
 #'   As there is no clarity with respect to the returned columns the function:
 #'   \itemize{
-#'     \item Chaneges names of known columns like \code{name}
+#'     \item Changes names of known columns like \code{target.instance, target.job}
+#'     \item Removes special characters from all columns
+#'   }
+#' @rdname utilities
+rename_metadata_data_frame <- function(x) {
+  # For columns of known messy values provide replacements
+  clean_names <- do.call(what = 'gsub',
+                         args = list(
+                           x = names(x),
+                           pattern = c(".*instance.*"),
+                           replacement = c("instance")
+                         ))
+
+  clean_names <- do.call(what = 'gsub',
+                         args = list(
+                           x = clean_names,
+                           pattern = c(".*job.*"),
+                           replacement = c("job")
+                         ))
+  # Set names on X
+  x <- setNames(object = x, nm = clean_names)
+  return(x)
+}
+
+#' @section Utility function cleaning column names:
+#'   As there is no clarity with respect to the returned columns the function:
+#'   \itemize{
+#'     \item Changes names of known columns like \code{name}
 #'     \item Removes special characters from all columns
 #'   }
 #' @rdname utilities
@@ -95,7 +135,6 @@ rename_metrics_data_frame <- function(x) {
   x <- setNames(object = x, nm = clean_names)
   return(x)
 }
-
 
 #' @section Utility function used to destring value column:
 #'   The \code{value} columns should always contain numerical values, the

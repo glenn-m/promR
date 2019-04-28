@@ -116,15 +116,19 @@
 
 <span class='fu'>format_metrics_range_data</span>(<span class='no'>x</span>)
 
+<span class='fu'>format_metadata</span>(<span class='no'>x</span>)
+
+<span class='fu'>rename_metadata_data_frame</span>(<span class='no'>x</span>)
+
 <span class='fu'>rename_metrics_data_frame</span>(<span class='no'>x</span>)
+
+<span class='fu'>destring</span>(<span class='no'>x</span>)
 
 <span class='fu'>parse_timeout</span>(<span class='no'>timeout_val</span>)
 
 <span class='fu'>response_check</span>(<span class='no'>response</span>)
 
-<span class='fu'>metrics_check</span>(<span class='no'>metric</span>)
-
-<span class='fu'>clean_metric_names</span>(<span class='no'>metric</span>)</pre>
+<span class='fu'>metrics_check</span>(<span class='no'>metric</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -145,10 +149,6 @@
       <th>metrics</th>
       <td><p>Generated metrics object</p></td>
     </tr>
-    <tr>
-      <th>metrics</th>
-      <td><p>Generated metrics object</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="utility-function-for-parsing-metrics-output"><a class="anchor" href="#utility-function-for-parsing-metrics-output"></a>Utility function for parsing metrics output</h2>
@@ -161,13 +161,28 @@
     
     <p>Formats metrics data passed by range query.</p>
     
+    <h2 class="hasAnchor" id="utility-function-for-parsing-metadata-output"><a class="anchor" href="#utility-function-for-parsing-metadata-output"></a>Utility function for parsing metadata output</h2>
+
+    
+    <p>Formats data passed by metadata query.</p>
+    
     <h2 class="hasAnchor" id="utility-function-cleaning-column-names"><a class="anchor" href="#utility-function-cleaning-column-names"></a>Utility function cleaning column names</h2>
 
     
     <p>As there is no clarity with respect to the returned columns the function:</p><ul>
-<li><p>Chaneges names of known columns like <code>name</code></p></li>
+<li><p>Changes names of known columns like <code>target.instance, target.job</code></p></li>
 <li><p>Removes special characters from all columns</p></li>
 </ul>
+    <p>As there is no clarity with respect to the returned columns the function:</p><ul>
+<li><p>Changes names of known columns like <code>name</code></p></li>
+<li><p>Removes special characters from all columns</p></li>
+</ul>
+    
+    <h2 class="hasAnchor" id="utility-function-used-to-destring-value-column"><a class="anchor" href="#utility-function-used-to-destring-value-column"></a>Utility function used to destring value column</h2>
+
+    
+    <p>The <code>value</code> columns should always contain numerical values, the
+  function ensures that those are returned as of <code>numeric</code> type.</p>
     
     <h2 class="hasAnchor" id="utility-function-for-parsing-timeout-argument-parse-timeout"><a class="anchor" href="#utility-function-for-parsing-timeout-argument-parse-timeout"></a>Utility function for parsing timeout argument <code>parse_timeout</code></h2>
 
@@ -185,10 +200,6 @@
     <p>Check if metrics objects contains data. If there is no data for time
   period referenced in the query this function will return an error.</p>
     
-    <h2 class="hasAnchor" id="clean-metrics-object-column-names"><a class="anchor" href="#clean-metrics-object-column-names"></a>Clean metrics object column names</h2>
-
-    <p>NA</p>
-    
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -200,15 +211,17 @@
 
       <li><a href="#utility-function-for-parsing-range-metrics-output">Utility function for parsing range metrics output</a></li>
 
+      <li><a href="#utility-function-for-parsing-metadata-output">Utility function for parsing metadata output</a></li>
+
       <li><a href="#utility-function-cleaning-column-names">Utility function cleaning column names</a></li>
+
+      <li><a href="#utility-function-used-to-destring-value-column">Utility function used to destring value column</a></li>
 
       <li><a href="#utility-function-for-parsing-timeout-argument-parse-timeout">Utility function for parsing timeout argument <code>parse_timeout</code></a></li>
 
       <li><a href="#checking-prometheus-server-response">Checking Prometheus Server response</a></li>
 
       <li><a href="#check-metrics-object">Check Metrics Object</a></li>
-
-      <li><a href="#clean-metrics-object-column-names">Clean metrics object column names</a></li>
           </ul>
 
   </div>
