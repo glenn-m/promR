@@ -1,3 +1,5 @@
+^docs$
+^_pkgdown\.yml$
 ^codecov\.yml$
 ^README.Rmd
 ^\.travis\.yml$
@@ -6,6 +8,5 @@
 
 # Exclude readme files
 ^README.*$
-
 # Exclude RStudio session log
 sessionInfoLog

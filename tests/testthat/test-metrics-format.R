@@ -37,6 +37,7 @@ test_that(desc = "Range metrics are not empty",
 #   }
 # }
 
+
 # Source, response-like objects
 test_that(desc = "Column __name__ in data frame is renamed to name",
           code = expect_named(
@@ -46,4 +47,26 @@ test_that(desc = "Column __name__ in data frame is renamed to name",
               rename_metrics_data_frame(test_data_frame)
             },
             expected = c("some_column", "name")
+          ))
+
+
+
+test_that(desc = "Column target.instance in data frame is renamed to instance",
+          code = expect_named(
+            object = {
+              test_data_frame <- data.frame(some_column = 1,
+                                            target.instance = 2)
+              format_metadata(test_data_frame)
+            },
+            expected = c("some_column", "instance")
+          ))
+
+test_that(desc = "Column target.job in data frame is renamed to job",
+          code = expect_named(
+            object = {
+              test_data_frame <- data.frame(some_column = 1,
+                                            target.job = 2)
+              format_metadata(test_data_frame)
+            },
+            expected = c("some_column", "job")
           ))
