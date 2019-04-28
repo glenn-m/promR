@@ -72,8 +72,26 @@ test_that(desc = "OK when application type is json and status code is 200.",
 
 # Test whether package can pull some sample data
 # Source query data once to use later across tests
-prom <-
-  Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+
+# Create an object
+prom <- Prometheus$new(host = "http://demo.robustperception.io",
+                       port = 9090)
+
+test_that(
+  desc = "Check that class functions source data.",
+  code = {
+    response <- mockr::with_mock(
+      `curl::curl_fetch_memory` = function(...) {
+        load("instant_query_response.rda")
+        cfm_output
+      },
+      prom$query(query = "go_goroutines",
+                 time = as.numeric(as.POSIXct(Sys.time())))
+    )
+  }
+)
+
+
 dta_tst_metrics <-
   prom$query(query = "go_goroutines",
              time = as.numeric(as.POSIXct(Sys.time())))
