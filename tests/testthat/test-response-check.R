@@ -77,24 +77,15 @@ test_that(desc = "OK when application type is json and status code is 200.",
 prom <- Prometheus$new(host = "http://demo.robustperception.io",
                        port = 9090)
 
-test_that(
-  desc = "Check that class functions source data.",
-  code = {
-    response <- mockr::with_mock(
-      wrapper_httr_get = function(...) {
-        cfm_output
-      },
-      prom$query(query = "go_goroutines",
-                 time = as.numeric(as.POSIXct(Sys.time())))
-    )
-    # FIXME: Re-generate object equal httr::GET output
-    expect_equal(object = response, expected = cfm_output)
-    print("Response")
-    print(str(response))
-    print(("CFM"))
-    print(str(cfm_output))
-  }
-)
+test_that(desc = "Check that class functions source data.",
+          code = {
+            stub(httr::GET,
+                 'query',
+                 system.file("promR", "testdata", "response_instant.RDS"))
+            metrics_instant <-
+              prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time() - 60))
+            expect_is(object = metrics_instant, class = "data.frame")
+          })
 
 
 dta_tst_metrics <-
@@ -112,4 +103,3 @@ test_that(desc = "Metrics data frame has some columns.",
 test_that(desc = "Metrics data frame has some rows.",
           code = expect_gt(object = nrow(dta_tst_metrics),
                            expected = 2))
-

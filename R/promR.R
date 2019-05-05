@@ -42,9 +42,7 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
-
-    r <-
-      wrapper_httr_get(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
