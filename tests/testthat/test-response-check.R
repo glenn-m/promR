@@ -87,6 +87,7 @@ test_that(
       prom$query(query = "go_goroutines",
                  time = as.numeric(as.POSIXct(Sys.time())))
     )
+    # FIXME: Re-generate object equal httr::GET output
     expect_equal(object = response, expected = cfm_output)
     print("Response")
     print(str(response))
