@@ -82,7 +82,6 @@ test_that(
   code = {
     response <- mockr::with_mock(
       `curl::curl_fetch_memory` = function(...) {
-        load("instant_query_response.rda")
         cfm_output
       },
       prom$query(query = "go_goroutines",
