@@ -44,7 +44,7 @@ Prometheus$methods(
     }
 
     r <-
-      httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+      wrapper_httr_get(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response

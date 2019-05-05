@@ -81,12 +81,17 @@ test_that(
   desc = "Check that class functions source data.",
   code = {
     response <- mockr::with_mock(
-      wrapper_curl_fetch_memory = function(...) {
+      wrapper_httr_get = function(...) {
         cfm_output
       },
       prom$query(query = "go_goroutines",
                  time = as.numeric(as.POSIXct(Sys.time())))
     )
+    expect_equal(object = response, expected = cfm_output)
+    print("Response")
+    print(str(response))
+    print(("CFM"))
+    print(str(cfm_output))
   }
 )
 

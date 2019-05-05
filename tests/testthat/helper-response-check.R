@@ -255,10 +255,3 @@ cfm_output <- list(
     )
   )
 )
-
-# Wrapper: curl -----------------------------------------------------------
-
-# Write wrapper function to test curl response
-wrapper_curl_fetch_memory <- function(...) {
-  curl::curl_fetch_memory(...)
-}

@@ -51,3 +51,11 @@ metrics_check <- function(metric) {
     }
   )
 }
+
+#' @section Wrapper - httr Get:
+#'   Wrapper function for curl fetch memory to facilitate testing via mockr.
+#' @param ... As in
+#' @keywords internal
+wrapper_httr_get <- function(...) {
+  httr::GET(...)
+}
