@@ -1,3 +1,5 @@
+# Instant query output ----------------------------------------------------
+
 cfm_output <- list(
   url = "http://demo.robustperception.io:9090/api/v1/query_range",
   status_code = 400L,
@@ -253,3 +255,10 @@ cfm_output <- list(
     )
   )
 )
+
+# Wrapper: curl -----------------------------------------------------------
+
+# Write wrapper function to test curl response
+wrapper_curl_fetch_memory <- function(...) {
+  curl::curl_fetch_memory(...)
+}

@@ -81,7 +81,7 @@ test_that(
   desc = "Check that class functions source data.",
   code = {
     response <- mockr::with_mock(
-      `curl::curl_fetch_memory` = function(...) {
+      wrapper_curl_fetch_memory = function(...) {
         cfm_output
       },
       prom$query(query = "go_goroutines",
