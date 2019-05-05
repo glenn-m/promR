@@ -24,4 +24,3 @@ Suggests:
     mockery (>= 0.4.1),
     rmarkdown (>= 1.12),
     testthat (>= 2.0.1)
-VignetteBuilder: knitr
