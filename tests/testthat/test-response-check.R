@@ -56,7 +56,7 @@ test_that(desc = "Error is raised when response type is not application/json.",
             ),
             class = "response")
             expect_error(response_check(response),
-                         "Prometheus API did not return json")
+                         "Prometheus API did not return JSON")
           })
 
 test_that(desc = "OK when application type is json and status code is 200.",
