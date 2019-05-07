@@ -7,14 +7,14 @@ NULL
 #> NULL
 
 #' @section Checking Prometheus Server response:
-#'   Returns more meanigful error code
+#'   Returns more meaningful error code
 #' @param response  httr response object
 #' @rdname utilities
 #' @keywords internal
 response_check <- function(response) {
   # Check that we got a JSON response
   if (httr::http_type(response) != "application/json") {
-    stop("Prometheus API did not return json", call. = FALSE)
+    stop("Prometheus API did not return JSON", call. = FALSE)
   }
 
   # Check we didn't get any error status_code

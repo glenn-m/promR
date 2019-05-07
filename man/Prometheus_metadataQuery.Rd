@@ -2,9 +2,9 @@
 % Please edit documentation in R/promR.R
 \name{Prometheus_metadataQuery}
 \alias{Prometheus_metadataQuery}
-\title{Promtheus Metadata Query}
+\title{Prometheus Metadata Query}
 \arguments{
-\item{match_target}{The arguement to match metrics against.}
+\item{match_target}{The argument to match metrics against.}
 
 \item{metric}{The metric to retrieve metadata for. Optional.}
 

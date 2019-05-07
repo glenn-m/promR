@@ -1,10 +1,10 @@
 context("Metrics data is formatted correctly")
 
-test_that(desc = "Instant mertics results are data frame",
+test_that(desc = "Instant metrics results are data frame",
           code = expect_is(object = metrics_current,
                            class = "data.frame"))
 
-test_that(desc = "Range mertics results are data frame",
+test_that(desc = "Range metrics results are data frame",
           code = expect_is(object = metrics_range,
                            class = "data.frame"))
 
