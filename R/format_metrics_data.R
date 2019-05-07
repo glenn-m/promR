@@ -79,7 +79,9 @@ format_metadata <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
+
   res <- rename_metadata_data_frame(x)
+
   return(res)
 }
 
@@ -120,7 +122,7 @@ rename_metadata_data_frame <- function(x) {
 rename_metrics_data_frame <- function(x) {
   x_names <- names(x)
   if (is.null(x_names)) {
-    return(NULL)
+    return(x)
   }
   # For columns of known messy values provide replacements
   clean_names <- do.call(what = 'gsub',

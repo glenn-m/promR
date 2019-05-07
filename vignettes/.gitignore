@@ -1,6 +1,0 @@
-# Output files
-*.html
-*.R
-
-# Cache directory
-*_cache/

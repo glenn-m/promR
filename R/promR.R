@@ -42,9 +42,7 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
-
-    r <-
-      httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
@@ -63,7 +61,7 @@ Prometheus$methods(
 )
 
 #' @name Prometheus_rangeQuery
-#' @title Promtheus Range Query
+#' @title Prometheus Range Query
 #' @description Run a range query against the Prometheus Server
 #' @param query The PromQL query
 #' @param start Start timestamp, can be a rfc3339 or Unix timestamp.
@@ -115,9 +113,9 @@ Prometheus$methods(
 )
 
 #' @name Prometheus_metadataQuery
-#' @title Promtheus Metadata Query
+#' @title Prometheus Metadata Query
 #' @description Run a metadata query against the Prometheus Server
-#' @param match_target The arguement to match metrics against.
+#' @param match_target The argument to match metrics against.
 #' @param metric The metric to retrieve metadata for. Optional.
 #' @param limit The number of results of targets to return.
 #' @examples

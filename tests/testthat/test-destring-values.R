@@ -28,6 +28,6 @@ test_that(desc = "If column names are null, null is returned",
             df <- data.frame(matrix(ncol = 3, nrow = 0))
             colnames(df) <- c(NULL, NULL, NULL)
             expect_equal(rename_metrics_data_frame(df),
-                         NULL)
+                         df)
           })
 
