@@ -69,11 +69,3 @@ test_that(desc = "OK when application type is json and status code is 200.",
             class = "response")
             expect_silent(response_check(response))
           })
-
-# Test whether package can pull some sample data
-# Source query data once to use later across tests
-
-# Create an object
-
-
-
