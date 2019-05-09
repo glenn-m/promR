@@ -8,6 +8,7 @@
 
 # Exclude readme files
 ^README.*$
+
 # Exclude RStudio session log
 sessionInfoLog
 
