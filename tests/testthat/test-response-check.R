@@ -69,37 +69,3 @@ test_that(desc = "OK when application type is json and status code is 200.",
             class = "response")
             expect_silent(response_check(response))
           })
-
-# Test whether package can pull some sample data
-# Source query data once to use later across tests
-
-# Create an object
-prom <- Prometheus$new(host = "http://demo.robustperception.io",
-                       port = 9090)
-
-test_that(desc = "Check that class functions source data.",
-          code = {
-            stub(httr::GET,
-                 'query',
-                 system.file("promR", "testdata", "response_instant.RDS"))
-            metrics_instant <-
-              prom$query(query = "go_goroutines", time = as.POSIXct(Sys.time() - 60))
-            expect_is(object = metrics_instant, class = "data.frame")
-          })
-
-
-dta_tst_metrics <-
-  prom$query(query = "go_goroutines",
-             time = as.numeric(as.POSIXct(Sys.time())))
-
-test_that(desc = "Metrics within Prometheus class are data frame.",
-          code = expect_is(object = dta_tst_metrics,
-                           class = "data.frame"))
-
-test_that(desc = "Metrics data frame has some columns.",
-          code = expect_gt(object = ncol(dta_tst_metrics),
-                           expected = 2))
-
-test_that(desc = "Metrics data frame has some rows.",
-          code = expect_gt(object = nrow(dta_tst_metrics),
-                           expected = 2))
