@@ -6,3 +6,7 @@ inst/doc
 
 # RStudio session log
 sessionInfoLog
+
+# VScode 
+.vscode
+*.code-workspace
