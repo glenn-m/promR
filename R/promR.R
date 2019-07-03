@@ -42,9 +42,7 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
-
-    r <-
-      httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
@@ -63,7 +61,7 @@ Prometheus$methods(
 )
 
 #' @name Prometheus_rangeQuery
-#' @title Promtheus Range Query
+#' @title Prometheus Range Query
 #' @description Run a range query against the Prometheus Server
 #' @param query The PromQL query
 #' @param start Start timestamp, can be a rfc3339 or Unix timestamp.
@@ -111,5 +109,36 @@ Prometheus$methods(
     # Any formatting on the metrics data can take place within this function
     metrics <- format_metrics_range_data(metrics)
     return(metrics)
+  }
+)
+
+#' @name Prometheus_metadataQuery
+#' @title Prometheus Metadata Query
+#' @description Run a metadata query against the Prometheus Server
+#' @param match_target The argument to match metrics against.
+#' @param metric The metric to retrieve metadata for. Optional.
+#' @param limit The number of results of targets to return.
+#' @examples
+#' \donttest{
+#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' metadata <- prom$metadataQuery(match_target = '{job=~"..*"}', metric = 'go_goroutines')
+#' }
+Prometheus$methods(
+  metadataQuery = function(match_target, metric = NULL, limit = NULL) {
+    params <- list(
+      match_target = match_target,
+      metric = metric,
+      limit = limit
+    )
+    r <-
+      httr::GET(paste0(c(host, ":", port, "/api/v1/targets/metadata"), collapse = ""),
+                query = params)
+
+    # Check for particular status codes in response
+    response_check(r)
+
+    target_metadata <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"), flatten = TRUE)
+    metadata <- format_metadata(target_metadata$data)
+    return(metadata)
   }
 )

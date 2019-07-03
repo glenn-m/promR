@@ -4,6 +4,8 @@
 \name{format_metrics_instant_data}
 \alias{format_metrics_instant_data}
 \alias{format_metrics_range_data}
+\alias{format_metadata}
+\alias{rename_metadata_data_frame}
 \alias{rename_metrics_data_frame}
 \alias{destring}
 \alias{parse_timeout}
@@ -15,6 +17,10 @@
 format_metrics_instant_data(x)
 
 format_metrics_range_data(x)
+
+format_metadata(x)
+
+rename_metadata_data_frame(x)
 
 rename_metrics_data_frame(x)
 
@@ -49,11 +55,23 @@ Utility functions, usually called within the package and not
   Formats metrics data passed by range query.
 }
 
+\section{Utility function for parsing metadata output}{
+
+  Formats data passed by metadata query.
+}
+
 \section{Utility function cleaning column names}{
 
   As there is no clarity with respect to the returned columns the function:
   \itemize{
-    \item Chaneges names of known columns like \code{name}
+    \item Changes names of known columns like \code{target.instance, target.job}
+    \item Removes special characters from all columns
+  }
+
+
+  As there is no clarity with respect to the returned columns the function:
+  \itemize{
+    \item Changes names of known columns like \code{name}
     \item Removes special characters from all columns
   }
 }
@@ -71,7 +89,7 @@ Utility functions, usually called within the package and not
 
 \section{Checking Prometheus Server response}{
 
-  Returns more meanigful error code
+  Returns more meaningful error code
 }
 
 \section{Check Metrics Object}{

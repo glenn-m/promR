@@ -99,11 +99,11 @@
 <p><strong>Output:</strong></p>
 <table class="table table">
 <thead><tr class="header">
-<th align="left">X__name__</th>
+<th align="left">name</th>
 <th align="left">instance</th>
 <th align="left">job</th>
 <th align="left">timestamp</th>
-<th align="left">value</th>
+<th align="right">value</th>
 <th align="right">port</th>
 </tr></thead>
 <tbody>
@@ -111,32 +111,32 @@
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
-<td align="left">1556192849.496</td>
-<td align="left">95</td>
+<td align="left">1556402663.85</td>
+<td align="right">105</td>
 <td align="right">9090</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">pushgateway</td>
-<td align="left">1556192849.496</td>
-<td align="left">43</td>
+<td align="left">1556402663.85</td>
+<td align="right">45</td>
 <td align="right">9091</td>
 </tr>
 <tr class="odd">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">alertmanager</td>
-<td align="left">1556192849.496</td>
-<td align="left">37</td>
+<td align="left">1556402663.85</td>
+<td align="right">38</td>
 <td align="right">9093</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">node</td>
-<td align="left">1556192849.496</td>
-<td align="left">9</td>
+<td align="left">1556402663.85</td>
+<td align="right">11</td>
 <td align="right">9100</td>
 </tr>
 </tbody>
@@ -161,7 +161,7 @@
 <th align="left">job</th>
 <th align="right">port</th>
 <th align="left">timestamp</th>
-<th align="left">value</th>
+<th align="right">value</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -169,48 +169,189 @@
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192309.681</td>
-<td align="left">95</td>
+<td align="left">1556402123.995</td>
+<td align="right">95</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192319.681</td>
-<td align="left">95</td>
+<td align="left">1556402133.995</td>
+<td align="right">95</td>
 </tr>
 <tr class="odd">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192329.681</td>
-<td align="left">95</td>
+<td align="left">1556402143.995</td>
+<td align="right">95</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192339.681</td>
-<td align="left">95</td>
+<td align="left">1556402153.995</td>
+<td align="right">99</td>
 </tr>
 <tr class="odd">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192349.681</td>
-<td align="left">95</td>
+<td align="left">1556402163.995</td>
+<td align="right">95</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
 <td align="right">9090</td>
-<td align="left">1556192359.681</td>
-<td align="left">98</td>
+<td align="left">1556402173.995</td>
+<td align="right">95</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metadata-query" class="section level3">
+<h3 class="hasAnchor">
+<a href="#metadata-query" class="anchor"></a>Metadata Query</h3>
+<div id="get-metadata-for-all-node-exporter-metrics-" class="section level4">
+<h4 class="hasAnchor">
+<a href="#get-metadata-for-all-node-exporter-metrics-" class="anchor"></a>Get metadata for all node exporter metrics.</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
+<a class="sourceLine" id="cb4-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
+<a class="sourceLine" id="cb4-3" title="3">metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job="node"}'</span>)</a></code></pre></div>
+<p><strong>Output:</strong></p>
+<table class="table table">
+<thead><tr class="header">
+<th align="left">metric</th>
+<th align="left">type</th>
+<th align="left">help</th>
+<th align="left">unit</th>
+<th align="left">instance</th>
+<th align="left">job</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">node_netstat_Icmp_InMsgs</td>
+<td align="left">unknown</td>
+<td align="left">Statistic IcmpInMsgs.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_netstat_TcpExt_SyncookiesFailed</td>
+<td align="left">unknown</td>
+<td align="left">Statistic TcpExtSyncookiesFailed.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_network_dormant</td>
+<td align="left">gauge</td>
+<td align="left">dormant value of /sys/class/net/<iface>.</iface>
+</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_memory_MemFree_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Memory information field MemFree_bytes.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_filesystem_size_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Filesystem size in bytes.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_netstat_UdpLite_InErrors</td>
+<td align="left">unknown</td>
+<td align="left">Statistic UdpLiteInErrors.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="get-metadata-for-all-metrics-" class="section level3">
+<h3 class="hasAnchor">
+<a href="#get-metadata-for-all-metrics-" class="anchor"></a>Get metadata for all metrics.</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
+<a class="sourceLine" id="cb5-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job=~".+"}'</span>)</a></code></pre></div>
+<p><strong>Output:</strong></p>
+<table class="table table">
+<thead><tr class="header">
+<th align="left">metric</th>
+<th align="left">type</th>
+<th align="left">help</th>
+<th align="left">unit</th>
+<th align="left">instance</th>
+<th align="left">job</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">prometheus_sd_kubernetes_cache_last_resource_version</td>
+<td align="left">gauge</td>
+<td align="left">Last resource version from the Kubernetes API.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
+</tr>
+<tr class="even">
+<td align="left">prometheus_tsdb_compactions_total</td>
+<td align="left">counter</td>
+<td align="left">Total number of compactions that were executed for the partition.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
+</tr>
+<tr class="odd">
+<td align="left">prometheus_tsdb_head_chunks_created_total</td>
+<td align="left">counter</td>
+<td align="left">Total number of chunks created in the head</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
+</tr>
+<tr class="even">
+<td align="left">prometheus_tsdb_head_series_created_total</td>
+<td align="left">counter</td>
+<td align="left">Total number of series created in the head</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
+</tr>
+<tr class="odd">
+<td align="left">go_memstats_buck_hash_sys_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Number of bytes used by the profiling bucket hash table.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
+</tr>
+<tr class="even">
+<td align="left">prometheus_rule_group_iterations_total</td>
+<td align="left">counter</td>
+<td align="left">The total number of scheduled rule group evaluations, whether executed or missed.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9090</td>
+<td align="left">prometheus</td>
 </tr>
 </tbody>
 </table>

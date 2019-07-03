@@ -8,7 +8,11 @@ Authors@R: as.person(c(
   ))
 Description: R library for reading metrics stored on a Prometheus Server.
 Depends: R (>= 3.3.0)
+<<<<<<< HEAD
 Imports:
+=======
+Imports: 
+>>>>>>> 1933630192f2b8f1fd280d9e09a59a36ce06658e
     checkmate (>= 1.9.1),
     httr (>= 1.3.1),
     jsonlite (>= 1.5.0),
@@ -19,8 +23,16 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
+<<<<<<< HEAD
     covr,
     knitr (>= 1.22),
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+=======
+    covr (>= 3.2.1),
+    httptest,
+    knitr (>= 1.22),
+    rmarkdown (>= 1.12),
+    testthat (>= 2.0.1)
+>>>>>>> 1933630192f2b8f1fd280d9e09a59a36ce06658e
