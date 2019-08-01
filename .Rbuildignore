@@ -12,10 +12,5 @@
 # Exclude RStudio session log
 sessionInfoLog
 
-<<<<<<< HEAD
-# Exclude vignette cache 
-*_cache/
-=======
 # Exclude vignette cache
 .*_cache/$
->>>>>>> 1933630192f2b8f1fd280d9e09a59a36ce06658e
