@@ -8,5 +8,5 @@ inst/doc
 sessionInfoLog
 
 # VScode 
-.vscode
+.vscode/
 *.code-workspace
