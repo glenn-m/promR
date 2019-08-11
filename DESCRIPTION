@@ -10,18 +10,18 @@ Description: R library for reading metrics stored on a Prometheus Server.
 Depends: R (>= 3.3.0)
 Imports: 
     checkmate (>= 1.9.1),
-    httr (>= 1.3.1),
-    jsonlite (>= 1.5.0),
-    methods (>= 3.0.0)
+    httr      (>= 1.3.1),
+    jsonlite  (>= 1.5.0),
+    methods   (>= 3.0.0)
 License: MIT + file LICENSE
 URL: https://github.com/glenn-m/promR
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Suggests: 
-    covr (>= 3.2.1),
-    httptest,
-    knitr (>= 1.22),
+    covr      (>= 3.2.1),
+    httptest  (>= 3.2.1),
+    knitr     (>= 1.22),
     rmarkdown (>= 1.12),
-    testthat (>= 2.0.1)
+    testthat  (>= 2.0.1)
 VignetteBuilder: knitr
