@@ -1,6 +1,5 @@
 ---
 title: "Basic Usage"
-author: "Konrad Zdeb"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -11,18 +10,68 @@ vignette: >
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
+  echo = TRUE,
   collapse = TRUE,
   comment = "#>"
 )
+
+# Enable httptest for vignette development
+library(httptest)
+start_vignette("basic-usage")
+
+# Load package
+library("promR")
 ```
+
+# Introduction
 
 Prometheus is an open-source software project recording real-time metrics using HTTP pull model [^1]. Prometheus records metrics in a time series database and allows for high-dimensionality. 
 
-## Queries
+# Queries
 
-The `promR` package offers `Promethous` class that provides two methods of sourcing data:
- - 
+The `promR` package offers `Promethous` class that provides two methods of sourcing data via instant and range query. The package also facilitates sourcing of the relevant metadata. With use of the sample host, the Prometheus class can be created in the following manner.
 
-### Instant
+```{r example_class}
+# library("promR")
+prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
+```
+
+
+## Instant
+
+The instant query sources the data for specific timestamp. The timestamp should be of class returned by `as.POSIXct`.
+
+```{r example_instant}
+# Timestamps can be in rfc3339 or unix format
+metrics_instant <- prom$query(query = "go_goroutines", 
+                              time = as.POSIXct("2019-08-11 12:25:57 BST"))
+```
+
+```{r show_instant_results, echo=FALSE}
+knitr::kable(metrics_instant)
+```
+
+## Range query
+
+A range query perimts sourcing of the data for a specific period according to a designated interval.
+
+```{r example_range}
+metrics_range <- prom$rangeQuery(
+  query = "go_goroutines",
+  start = as.numeric(as.POSIXct("2019-08-11 12:20:32 BST")),
+  end = as.numeric(as.POSIXct("2019-08-11 12:30:46 BST")),
+  step = "10s"
+)
+```
+
+```{r show_range_results, echo=FALSE}
+knitr::kable(metrics_range)
+```
+
 
 [^1]: For a detailed overview of the project refer to the project website [https://prometheus.io/](https://prometheus.io/).
+
+```{r end-setup, include=FALSE}
+# Close httptes vignette support
+end_vignette()
+```
