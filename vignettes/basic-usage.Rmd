@@ -68,6 +68,17 @@ metrics_range <- prom$rangeQuery(
 knitr::kable(head(metrics_range))
 ```
 
+## Metdata
+
+Metadata can be sourced using the `metadataQuery` call.
+
+```{r metadata_example}
+metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
+```
+
+```{r show_metadata_example}
+knitr::kable(head(metrics_metadata))
+```
 
 [^1]: For a detailed overview of the project refer to the project website [https://prometheus.io/](https://prometheus.io/).
 
