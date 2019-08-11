@@ -53,7 +53,7 @@ knitr::kable(metrics_instant)
 
 ## Range query
 
-A range query perimts sourcing of the data for a specific period according to a designated interval.
+A range query permits sourcing of the data for a specific period according to a designated interval.
 
 ```{r example_range}
 metrics_range <- prom$rangeQuery(
@@ -68,7 +68,7 @@ metrics_range <- prom$rangeQuery(
 knitr::kable(head(metrics_range))
 ```
 
-## Metdata
+## Metadata
 
 Metadata can be sourced using the `metadataQuery` call.
 

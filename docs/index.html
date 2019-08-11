@@ -123,15 +123,15 @@
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
-<td align="left">1565524486.477</td>
-<td align="right">298</td>
+<td align="left">1565524845.295</td>
+<td align="right">295</td>
 <td align="right">9090</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">pushgateway</td>
-<td align="left">1565524486.477</td>
+<td align="left">1565524845.295</td>
 <td align="right">121</td>
 <td align="right">9091</td>
 </tr>
@@ -139,15 +139,15 @@
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">alertmanager</td>
-<td align="left">1565524486.477</td>
-<td align="right">35</td>
+<td align="left">1565524845.295</td>
+<td align="right">36</td>
 <td align="right">9093</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">node</td>
-<td align="left">1565524486.477</td>
+<td align="left">1565524845.295</td>
 <td align="right">8</td>
 <td align="right">9100</td>
 </tr>
@@ -165,7 +165,7 @@
 <span id="cb3-6"><a href="#cb3-6"></a>  <span class="dt">end =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>())),</span>
 <span id="cb3-7"><a href="#cb3-7"></a>  <span class="dt">step =</span> <span class="st">"10s"</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a>)</span></code></pre></div>
-<p><strong>Output:</strong> <strong>name</strong> instance job port timestamp 1 go_goroutines demo.robustperception.io prometheus 9090 1565523946.796 value 1 297</p>
+<p><strong>Output:</strong> <strong>name</strong> instance job port timestamp 1 go_goroutines demo.robustperception.io prometheus 9090 1565524306.048 value 1 295</p>
 </div>
 <div id="metadata-query" class="section level3">
 <h3 class="hasAnchor">
@@ -188,49 +188,51 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">node_disk_writes_completed_total</td>
-<td align="left">counter</td>
-<td align="left">The total number of writes completed successfully.</td>
+<td align="left">node_memory_SwapTotal_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Memory information field SwapTotal_bytes.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_filesystem_files_free</td>
-<td align="left">gauge</td>
-<td align="left">Filesystem total free file nodes.</td>
+<td align="left">node_netstat_Udp_InErrors</td>
+<td align="left">unknown</td>
+<td align="left">Statistic UdpInErrors.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_memory_SUnreclaim_bytes</td>
+<td align="left">node_network_address_assign_type</td>
 <td align="left">gauge</td>
-<td align="left">Memory information field SUnreclaim_bytes.</td>
+<td align="left">address_assign_type value of /sys/class/net/<iface>.</iface>
+</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_network_transmit_compressed_total</td>
-<td align="left">counter</td>
-<td align="left">Network device statistic transmit_compressed.</td>
+<td align="left">node_timex_tick_seconds</td>
+<td align="left">gauge</td>
+<td align="left">Seconds between clock ticks.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_disk_io_time_seconds_total</td>
-<td align="left">counter</td>
-<td align="left">Total seconds spent doing I/Os.</td>
+<td align="left">node_netstat_Udp6_NoPorts</td>
+<td align="left">unknown</td>
+<td align="left">Statistic Udp6NoPorts.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_memory_HugePages_Surp</td>
+<td align="left">node_network_dormant</td>
 <td align="left">gauge</td>
-<td align="left">Memory information field HugePages_Surp.</td>
+<td align="left">dormant value of /sys/class/net/<iface>.</iface>
+</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
@@ -257,52 +259,52 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">alertmanager_silences_gossip_messages_propagated_total</td>
-<td align="left">counter</td>
-<td align="left">Number of received gossip messages that have been further gossiped.</td>
+<td align="left">go_memstats_gc_sys_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Number of bytes used for garbage collection system metadata.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="even">
+<td align="left">go_memstats_lookups_total</td>
+<td align="left">counter</td>
+<td align="left">Total number of pointer lookups.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
+</tr>
+<tr class="odd">
+<td align="left">go_memstats_stack_sys_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Number of bytes obtained from system for stack allocator.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
+</tr>
+<tr class="even">
+<td align="left">process_virtual_memory_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Virtual memory size in bytes.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
+</tr>
+<tr class="odd">
 <td align="left">promhttp_metric_handler_requests_total</td>
 <td align="left">counter</td>
 <td align="left">Total number of scrapes by HTTP status code.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
-</tr>
-<tr class="odd">
-<td align="left">alertmanager_cluster_failed_peers</td>
-<td align="left">gauge</td>
-<td align="left">Number indicating the current number of failed peers in the cluster.</td>
-<td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="even">
-<td align="left">alertmanager_cluster_refresh_join_failed_total</td>
-<td align="left">counter</td>
-<td align="left">A counter of the number of failed cluster peer joined attempts via refresh.</td>
-<td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
-</tr>
-<tr class="odd">
-<td align="left">alertmanager_config_last_reload_success_timestamp_seconds</td>
+<td align="left">go_goroutines</td>
 <td align="left">gauge</td>
-<td align="left">Timestamp of the last successful configuration reload.</td>
+<td align="left">Number of goroutines that currently exist.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
-</tr>
-<tr class="even">
-<td align="left">alertmanager_oversized_gossip_message_sent_total</td>
-<td align="left">counter</td>
-<td align="left">Number of oversized gossip message sent.</td>
-<td align="left"></td>
-<td align="left">demo.robustperception.io:9093</td>
-<td align="left">alertmanager</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 </tbody>
 </table>

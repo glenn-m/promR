@@ -154,7 +154,7 @@
 <div id="range-query" class="section level2">
 <h2 class="hasAnchor">
 <a href="#range-query" class="anchor"></a>Range query</h2>
-<p>A range query perimts sourcing of the data for a specific period according to a designated interval.</p>
+<p>A range query permits sourcing of the data for a specific period according to a designated interval.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>metrics_range &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">rangeQuery</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">query =</span> <span class="st">"go_goroutines"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">start =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="st">"2019-08-11 12:20:32 BST"</span>)),</span>
@@ -222,6 +222,75 @@
 </tbody>
 </table>
 </div>
+<div id="metadata" class="section level2">
+<h2 class="hasAnchor">
+<a href="#metadata" class="anchor"></a>Metadata</h2>
+<p>Metadata can be sourced using the <code>metadataQuery</code> call.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job="node"}'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(metrics_metadata))</span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">metric</th>
+<th align="left">type</th>
+<th align="left">help</th>
+<th align="left">unit</th>
+<th align="left">instance</th>
+<th align="left">job</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">node_netstat_Udp_InErrors</td>
+<td align="left">unknown</td>
+<td align="left">Statistic UdpInErrors.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_network_address_assign_type</td>
+<td align="left">gauge</td>
+<td align="left">address_assign_type value of /sys/class/net/<iface>.</iface>
+</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_timex_tick_seconds</td>
+<td align="left">gauge</td>
+<td align="left">Seconds between clock ticks.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_memory_SwapTotal_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Memory information field SwapTotal_bytes.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_network_dormant</td>
+<td align="left">gauge</td>
+<td align="left">dormant value of /sys/class/net/<iface>.</iface>
+</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_vmstat_pswpin</td>
+<td align="left">unknown</td>
+<td align="left">/proc/vmstat information field pswpin.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="footnotes">
 <hr>
@@ -241,6 +310,7 @@
 <a href="#queries">Queries</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#instant">Instant</a></li>
       <li><a href="#range-query">Range query</a></li>
+      <li><a href="#metadata">Metadata</a></li>
       </ul>
 </li>
       </ul>
