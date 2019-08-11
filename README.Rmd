@@ -53,7 +53,7 @@ metrics_range <- prom$rangeQuery(
 ```
 **Output:**
 ```{r range_results, echo = FALSE, results = 'asis'}
-knitr::kable(head(metrics_range))
+head(metrics_range, n = 1)
 ```
 
 ### Metadata Query
