@@ -65,7 +65,7 @@ metrics_range <- prom$rangeQuery(
 ```
 
 ```{r show_range_results, echo=FALSE}
-knitr::kable(metrics_range)
+head(metrics_range, n = 1)
 ```
 
 
