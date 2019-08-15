@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2019-08-11" />
+<meta name="date" content="2019-08-15" />
 
 <title>Basic Usage</title>
 
@@ -304,7 +304,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Basic Usage</h1>
-<h4 class="date">2019-08-11</h4>
+<h4 class="date">2019-08-15</h4>
 
 
 
@@ -372,15 +372,143 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </div>
 <div id="range-query" class="section level2">
 <h2>Range query</h2>
-<p>A range query perimts sourcing of the data for a specific period according to a designated interval.</p>
+<p>A range query permits sourcing of the data for a specific period according to a designated interval.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>metrics_range &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">rangeQuery</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>  <span class="dt">query =</span> <span class="st">&quot;go_goroutines&quot;</span>,</span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="dt">start =</span> <span class="kw">as.numeric</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2019-08-11 12:20:32 BST&quot;</span>)),</span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">end =</span> <span class="kw">as.numeric</span>(<span class="kw">as.POSIXct</span>(<span class="st">&quot;2019-08-11 12:30:46 BST&quot;</span>)),</span>
 <span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">step =</span> <span class="st">&quot;10s&quot;</span></span>
 <span id="cb3-6"><a href="#cb3-6"></a>)</span></code></pre></div>
-<pre><code>#&gt;        __name__                 instance        job port  timestamp value
-#&gt; 1 go_goroutines demo.robustperception.io prometheus 9090 1565522432   301</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><strong>name</strong></th>
+<th align="left">instance</th>
+<th align="left">job</th>
+<th align="right">port</th>
+<th align="left">timestamp</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522432</td>
+<td align="right">301</td>
+</tr>
+<tr class="even">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522442</td>
+<td align="right">301</td>
+</tr>
+<tr class="odd">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522452</td>
+<td align="right">301</td>
+</tr>
+<tr class="even">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522462</td>
+<td align="right">301</td>
+</tr>
+<tr class="odd">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522472</td>
+<td align="right">301</td>
+</tr>
+<tr class="even">
+<td align="left">go_goroutines</td>
+<td align="left">demo.robustperception.io</td>
+<td align="left">prometheus</td>
+<td align="right">9090</td>
+<td align="left">1565522482</td>
+<td align="right">301</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metadata" class="section level2">
+<h2>Metadata</h2>
+<p>Metadata can be sourced using the <code>metadataQuery</code> call.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">&#39;{job=&quot;node&quot;}&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(metrics_metadata))</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">metric</th>
+<th align="left">type</th>
+<th align="left">help</th>
+<th align="left">unit</th>
+<th align="left">instance</th>
+<th align="left">job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">node_netstat_Udp_InErrors</td>
+<td align="left">unknown</td>
+<td align="left">Statistic UdpInErrors.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_network_address_assign_type</td>
+<td align="left">gauge</td>
+<td align="left">address_assign_type value of /sys/class/net/<iface>.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_timex_tick_seconds</td>
+<td align="left">gauge</td>
+<td align="left">Seconds between clock ticks.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_memory_SwapTotal_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Memory information field SwapTotal_bytes.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="odd">
+<td align="left">node_network_dormant</td>
+<td align="left">gauge</td>
+<td align="left">dormant value of /sys/class/net/<iface>.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+<tr class="even">
+<td align="left">node_vmstat_pswpin</td>
+<td align="left">unknown</td>
+<td align="left">/proc/vmstat information field pswpin.</td>
+<td align="left"></td>
+<td align="left">demo.robustperception.io:9100</td>
+<td align="left">node</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="footnotes">

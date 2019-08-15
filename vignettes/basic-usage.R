@@ -33,7 +33,13 @@ metrics_range <- prom$rangeQuery(
 )
 
 ## ----show_range_results, echo=FALSE--------------------------------------
-head(metrics_range, n = 1)
+knitr::kable(head(metrics_range))
+
+## ----metadata_example----------------------------------------------------
+metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
+
+## ----show_metadata_example-----------------------------------------------
+knitr::kable(head(metrics_metadata))
 
 ## ----end-setup, include=FALSE--------------------------------------------
 # Close httptes vignette support
