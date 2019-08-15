@@ -76,7 +76,7 @@ Metadata can be sourced using the `metadataQuery` call.
 metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
 ```
 
-```{r show_metadata_example}
+```{r show_metadata_example, echo=FALSE}
 knitr::kable(head(metrics_metadata))
 ```
 
