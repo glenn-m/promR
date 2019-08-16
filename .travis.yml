@@ -1,11 +1,23 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
+
 sudo: false
+
 dist: trusty
-cache: packages
+
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+
 latex: false
+
 fortran: false
+
+r_binary_packages:
+  - rmarkdown
 
 # Extend travis jobs to account for major R versions
 jobs:
