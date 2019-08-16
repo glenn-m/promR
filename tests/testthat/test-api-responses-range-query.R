@@ -5,8 +5,8 @@ with_mock_api({
             code = {
               metrics_range <- prom$rangeQuery(
                 query = "go_goroutines",
-                start = as.numeric(as.POSIXct("2019-05-09 21:06:56 BST")),
-                end = as.numeric(as.POSIXct("2019-05-09 21:17:21 BST")),
+                start = as.numeric(as.POSIXct("2019-08-04 21:06:56 BST")),
+                end = as.numeric(as.POSIXct("2019-08-05 21:17:21 BST")),
                 step = "10s"
               )
               expect_is(object = metrics_range, class = "data.frame")
