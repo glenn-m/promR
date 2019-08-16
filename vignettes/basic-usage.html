@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<meta name="date" content="2019-08-15" />
+<meta name="date" content="2019-08-16" />
 
 <title>Basic Usage</title>
 
@@ -304,7 +304,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Basic Usage</h1>
-<h4 class="date">2019-08-15</h4>
+<h4 class="date">2019-08-16</h4>
 
 
 
@@ -315,14 +315,15 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="queries" class="section level1">
 <h1>Queries</h1>
 <p>The <code>promR</code> package offers <code>Promethous</code> class that provides two methods of sourcing data via instant and range query. The package also facilitates sourcing of the relevant metadata. With use of the sample host, the Prometheus class can be created in the following manner.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># library(&quot;promR&quot;)</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(<span class="st">&quot;promR&quot;</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">&quot;http://demo.robustperception.io&quot;</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</span></code></pre></div>
 <div id="instant" class="section level2">
 <h2>Instant</h2>
 <p>The instant query sources the data for specific timestamp. The timestamp should be of class returned by <code>as.POSIXct</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Timestamps can be in rfc3339 or unix format</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>metrics_instant &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">query</span>(<span class="dt">query =</span> <span class="st">&quot;go_goroutines&quot;</span>, </span>
-<span id="cb2-3"><a href="#cb2-3"></a>                              <span class="dt">time =</span> <span class="kw">as.POSIXct</span>(<span class="st">&quot;2019-08-11 12:25:57 BST&quot;</span>))</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3"></a>                              <span class="dt">time =</span> <span class="kw">as.numeric</span>(</span>
+<span id="cb2-4"><a href="#cb2-4"></a>                                <span class="kw">as.POSIXct</span>(<span class="st">&quot;2019-08-11 12:25:57 BST&quot;</span>)))</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -446,7 +447,6 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h2>Metadata</h2>
 <p>Metadata can be sourced using the <code>metadataQuery</code> call.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">&#39;{job=&quot;node&quot;}&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(metrics_metadata))</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -460,49 +460,49 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">node_netstat_Udp_InErrors</td>
-<td align="left">unknown</td>
-<td align="left">Statistic UdpInErrors.</td>
+<td align="left">node_load1</td>
+<td align="left">gauge</td>
+<td align="left">1m load average.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_network_address_assign_type</td>
+<td align="left">node_memory_HugePages_Free</td>
 <td align="left">gauge</td>
-<td align="left">address_assign_type value of /sys/class/net/<iface>.</td>
+<td align="left">Memory information field HugePages_Free.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_timex_tick_seconds</td>
+<td align="left">node_network_iface_link</td>
 <td align="left">gauge</td>
-<td align="left">Seconds between clock ticks.</td>
+<td align="left">iface_link value of /sys/class/net/<iface>.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_memory_SwapTotal_bytes</td>
+<td align="left">node_scrape_collector_success</td>
 <td align="left">gauge</td>
-<td align="left">Memory information field SwapTotal_bytes.</td>
+<td align="left">node_exporter: Whether a collector succeeded.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_network_dormant</td>
-<td align="left">gauge</td>
-<td align="left">dormant value of /sys/class/net/<iface>.</td>
+<td align="left">node_disk_reads_merged_total</td>
+<td align="left">counter</td>
+<td align="left">The total number of reads merged.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_vmstat_pswpin</td>
-<td align="left">unknown</td>
-<td align="left">/proc/vmstat information field pswpin.</td>
+<td align="left">node_filefd_allocated</td>
+<td align="left">gauge</td>
+<td align="left">File descriptor statistics: allocated.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>

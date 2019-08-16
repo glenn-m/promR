@@ -13,13 +13,14 @@ start_vignette("basic-usage")
 library("promR")
 
 ## ----example_class-------------------------------------------------------
-# library("promR")
+library("promR")
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
 
 ## ----example_instant-----------------------------------------------------
 # Timestamps can be in rfc3339 or unix format
 metrics_instant <- prom$query(query = "go_goroutines", 
-                              time = as.POSIXct("2019-08-11 12:25:57 BST"))
+                              time = as.numeric(
+                                as.POSIXct("2019-08-11 12:25:57 BST")))
 
 ## ----show_instant_results, echo=FALSE------------------------------------
 knitr::kable(metrics_instant)
@@ -38,7 +39,7 @@ knitr::kable(head(metrics_range))
 ## ----metadata_example----------------------------------------------------
 metrics_metadata <- prom$metadataQuery(match_target = '{job="node"}')
 
-## ----show_metadata_example-----------------------------------------------
+## ----show_metadata_example, echo=FALSE-----------------------------------
 knitr::kable(head(metrics_metadata))
 
 ## ----end-setup, include=FALSE--------------------------------------------

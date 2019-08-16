@@ -24,4 +24,4 @@ Suggests:
     knitr     (>= 1.22),
     rmarkdown (>= 1.14),
     testthat  (>= 2.0.1)
-VignetteBuilder: rmarkdown
+VignetteBuilder: knitr
