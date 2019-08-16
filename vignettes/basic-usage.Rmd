@@ -32,7 +32,7 @@ Prometheus is an open-source software project recording real-time metrics using 
 The `promR` package offers `Promethous` class that provides two methods of sourcing data via instant and range query. The package also facilitates sourcing of the relevant metadata. With use of the sample host, the Prometheus class can be created in the following manner.
 
 ```{r example_class}
-# library("promR")
+library("promR")
 prom <- Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
 ```
 
@@ -44,7 +44,7 @@ The instant query sources the data for specific timestamp. The timestamp should 
 ```{r example_instant}
 # Timestamps can be in rfc3339 or unix format
 metrics_instant <- prom$query(query = "go_goroutines", 
-                              time = as.numeric(as.POSIXct("2019-08-11 12:25:57 BST")))
+                              time = as.POSIXct("2019-08-11 12:25:57 BST"))
 ```
 
 ```{r show_instant_results, echo=FALSE}
@@ -56,12 +56,12 @@ knitr::kable(metrics_instant)
 A range query permits sourcing of the data for a specific period according to a designated interval.
 
 ```{r example_range}
-metrics_range <- prom$rangeQuery(
-  query = "go_goroutines",
-  start = as.numeric(as.POSIXct("2019-08-11 12:20:32 BST")),
-  end = as.numeric(as.POSIXct("2019-08-11 12:30:46 BST")),
-  step = "10s"
-)
+# metrics_range <- prom$rangeQuery(
+#   query = "go_goroutines",
+#   start = as.POSIXct("2019-08-11 12:20:32 BST"),
+#   end = as.POSIXct("2019-08-11 12:30:46 BST"),
+#   step = "10s"
+# )
 ```
 
 ```{r show_range_results, echo=FALSE}

@@ -22,6 +22,6 @@ Suggests:
     covr      (>= 3.2.1),
     httptest  (>= 3.2.1),
     knitr     (>= 1.22),
-    rmarkdown (>= 1.12),
+    rmarkdown (>= 1.14),
     testthat  (>= 2.0.1)
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
