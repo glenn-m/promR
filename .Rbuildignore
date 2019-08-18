@@ -18,3 +18,5 @@ sessionInfoLog
 # Exclude VScode directories and files
 .*code-workspace$
 ^.vscode/
+^doc$
+^Meta$

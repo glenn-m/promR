@@ -6,169 +6,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_load1",
-            "type": "gauge",
-            "help": "1m load average.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_HugePages_Free",
-            "type": "gauge",
-            "help": "Memory information field HugePages_Free.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_network_iface_link",
-            "type": "gauge",
-            "help": "iface_link value of /sys/class/net/<iface>.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_scrape_collector_success",
-            "type": "gauge",
-            "help": "node_exporter: Whether a collector succeeded.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_disk_reads_merged_total",
-            "type": "counter",
-            "help": "The total number of reads merged.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_filefd_allocated",
-            "type": "gauge",
-            "help": "File descriptor statistics: allocated.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_filefd_maximum",
-            "type": "gauge",
-            "help": "File descriptor statistics: maximum.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_timex_pps_shift_seconds",
-            "type": "gauge",
-            "help": "Pulse per second interval duration.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "process_open_fds",
-            "type": "gauge",
-            "help": "Number of open file descriptors.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_HugePages_Total",
-            "type": "gauge",
-            "help": "Memory information field HugePages_Total.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_netstat_TcpExt_ListenOverflows",
-            "type": "unknown",
-            "help": "Statistic TcpExtListenOverflows.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_network_receive_drop_total",
-            "type": "counter",
-            "help": "Network device statistic receive_drop.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_sockstat_TCP_orphan",
-            "type": "gauge",
-            "help": "Number of TCP sockets in state orphan.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_DirectMap2M_bytes",
-            "type": "gauge",
-            "help": "Memory information field DirectMap2M_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
             "metric": "node_load15",
             "type": "gauge",
             "help": "15m load average.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "go_memstats_other_sys_bytes",
-            "type": "gauge",
-            "help": "Number of bytes used for other system allocations.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_network_up",
-            "type": "gauge",
-            "help": "Valid operstate for interface.",
             "unit": ""
         },
         {
@@ -216,9 +56,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Active_file_bytes",
+            "metric": "go_memstats_other_sys_bytes",
             "type": "gauge",
-            "help": "Memory information field Active_file_bytes.",
+            "help": "Number of bytes used for other system allocations.",
             "unit": ""
         },
         {
@@ -226,9 +66,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_CommitLimit_bytes",
+            "metric": "node_network_up",
             "type": "gauge",
-            "help": "Memory information field CommitLimit_bytes.",
+            "help": "Valid operstate for interface.",
             "unit": ""
         },
         {
@@ -296,9 +136,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_transmit_queue_length",
+            "metric": "node_memory_Active_file_bytes",
             "type": "gauge",
-            "help": "transmit_queue_length value of /sys/class/net/<iface>.",
+            "help": "Memory information field Active_file_bytes.",
             "unit": ""
         },
         {
@@ -306,9 +146,19 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Hugepagesize_bytes",
+            "metric": "node_memory_CommitLimit_bytes",
             "type": "gauge",
-            "help": "Memory information field Hugepagesize_bytes.",
+            "help": "Memory information field CommitLimit_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_transmit_queue_length",
+            "type": "gauge",
+            "help": "transmit_queue_length value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -326,19 +176,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_CmaTotal_bytes",
+            "metric": "node_memory_Hugepagesize_bytes",
             "type": "gauge",
-            "help": "Memory information field CmaTotal_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_DirectMap4k_bytes",
-            "type": "gauge",
-            "help": "Memory information field DirectMap4k_bytes.",
+            "help": "Memory information field Hugepagesize_bytes.",
             "unit": ""
         },
         {
@@ -376,9 +216,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_heap_idle_bytes",
+            "metric": "node_memory_CmaTotal_bytes",
             "type": "gauge",
-            "help": "Number of heap bytes waiting to be used.",
+            "help": "Memory information field CmaTotal_bytes.",
             "unit": ""
         },
         {
@@ -386,9 +226,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_last_gc_time_seconds",
+            "metric": "node_memory_DirectMap4k_bytes",
             "type": "gauge",
-            "help": "Number of seconds since 1970 of last garbage collection.",
+            "help": "Memory information field DirectMap4k_bytes.",
             "unit": ""
         },
         {
@@ -426,9 +266,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_entropy_available_bits",
+            "metric": "go_memstats_heap_idle_bytes",
             "type": "gauge",
-            "help": "Bits of available entropy.",
+            "help": "Number of heap bytes waiting to be used.",
             "unit": ""
         },
         {
@@ -436,9 +276,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_load5",
+            "metric": "go_memstats_last_gc_time_seconds",
             "type": "gauge",
-            "help": "5m load average.",
+            "help": "Number of seconds since 1970 of last garbage collection.",
             "unit": ""
         },
         {
@@ -486,9 +326,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Udp_InErrors",
-            "type": "unknown",
-            "help": "Statistic UdpInErrors.",
+            "metric": "node_entropy_available_bits",
+            "type": "gauge",
+            "help": "Bits of available entropy.",
             "unit": ""
         },
         {
@@ -496,9 +336,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_address_assign_type",
+            "metric": "node_load5",
             "type": "gauge",
-            "help": "address_assign_type value of /sys/class/net/<iface>.",
+            "help": "5m load average.",
             "unit": ""
         },
         {
@@ -526,9 +366,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_dormant",
-            "type": "gauge",
-            "help": "dormant value of /sys/class/net/<iface>.",
+            "metric": "node_netstat_Udp_InErrors",
+            "type": "unknown",
+            "help": "Statistic UdpInErrors.",
             "unit": ""
         },
         {
@@ -536,9 +376,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_vmstat_pswpin",
-            "type": "unknown",
-            "help": "/proc/vmstat information field pswpin.",
+            "metric": "node_network_address_assign_type",
+            "type": "gauge",
+            "help": "address_assign_type value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -556,9 +396,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_filesystem_files_free",
+            "metric": "node_network_dormant",
             "type": "gauge",
-            "help": "Filesystem total free file nodes.",
+            "help": "dormant value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -566,9 +406,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_SUnreclaim_bytes",
-            "type": "gauge",
-            "help": "Memory information field SUnreclaim_bytes.",
+            "metric": "node_vmstat_pswpin",
+            "type": "unknown",
+            "help": "/proc/vmstat information field pswpin.",
             "unit": ""
         },
         {
@@ -596,9 +436,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_HugePages_Surp",
+            "metric": "node_filesystem_files_free",
             "type": "gauge",
-            "help": "Memory information field HugePages_Surp.",
+            "help": "Filesystem total free file nodes.",
             "unit": ""
         },
         {
@@ -606,9 +446,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_textfile_scrape_error",
+            "metric": "node_memory_SUnreclaim_bytes",
             "type": "gauge",
-            "help": "1 if there was an error opening or reading a file, 0 otherwise",
+            "help": "Memory information field SUnreclaim_bytes.",
             "unit": ""
         },
         {
@@ -636,29 +476,29 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "node_memory_HugePages_Surp",
+            "type": "gauge",
+            "help": "Memory information field HugePages_Surp.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_textfile_scrape_error",
+            "type": "gauge",
+            "help": "1 if there was an error opening or reading a file, 0 otherwise",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_memory_VmallocChunk_bytes",
             "type": "gauge",
             "help": "Memory information field VmallocChunk_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_disk_reads_completed_total",
-            "type": "counter",
-            "help": "The total number of reads completed successfully.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_AnonHugePages_bytes",
-            "type": "gauge",
-            "help": "Memory information field AnonHugePages_bytes.",
             "unit": ""
         },
         {
@@ -706,9 +546,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_HugePages_Rsvd",
-            "type": "gauge",
-            "help": "Memory information field HugePages_Rsvd.",
+            "metric": "node_disk_reads_completed_total",
+            "type": "counter",
+            "help": "The total number of reads completed successfully.",
             "unit": ""
         },
         {
@@ -716,9 +556,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_WritebackTmp_bytes",
+            "metric": "node_memory_AnonHugePages_bytes",
             "type": "gauge",
-            "help": "Memory information field WritebackTmp_bytes.",
+            "help": "Memory information field AnonHugePages_bytes.",
             "unit": ""
         },
         {
@@ -756,9 +596,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_stack_inuse_bytes",
+            "metric": "node_memory_HugePages_Rsvd",
             "type": "gauge",
-            "help": "Number of bytes in use by the stack allocator.",
+            "help": "Memory information field HugePages_Rsvd.",
             "unit": ""
         },
         {
@@ -766,9 +606,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_disk_writes_merged_total",
-            "type": "counter",
-            "help": "The number of writes merged.",
+            "metric": "node_memory_WritebackTmp_bytes",
+            "type": "gauge",
+            "help": "Memory information field WritebackTmp_bytes.",
             "unit": ""
         },
         {
@@ -806,9 +646,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Inactive_anon_bytes",
+            "metric": "go_memstats_stack_inuse_bytes",
             "type": "gauge",
-            "help": "Memory information field Inactive_anon_bytes.",
+            "help": "Number of bytes in use by the stack allocator.",
             "unit": ""
         },
         {
@@ -816,9 +656,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Writeback_bytes",
-            "type": "gauge",
-            "help": "Memory information field Writeback_bytes.",
+            "metric": "node_disk_writes_merged_total",
+            "type": "counter",
+            "help": "The number of writes merged.",
             "unit": ""
         },
         {
@@ -876,9 +716,39 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "node_memory_Inactive_anon_bytes",
+            "type": "gauge",
+            "help": "Memory information field Inactive_anon_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_Writeback_bytes",
+            "type": "gauge",
+            "help": "Memory information field Writeback_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_netstat_Tcp_ActiveOpens",
             "type": "unknown",
             "help": "Statistic TcpActiveOpens.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "go_memstats_mspan_inuse_bytes",
+            "type": "gauge",
+            "help": "Number of bytes in use by mspan structures.",
             "unit": ""
         },
         {
@@ -899,36 +769,6 @@
             "metric": "node_memory_Buffers_bytes",
             "type": "gauge",
             "help": "Memory information field Buffers_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "go_memstats_mspan_inuse_bytes",
-            "type": "gauge",
-            "help": "Number of bytes in use by mspan structures.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_Dirty_bytes",
-            "type": "gauge",
-            "help": "Memory information field Dirty_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_sockstat_UDP_mem_bytes",
-            "type": "gauge",
-            "help": "Number of UDP sockets in state mem_bytes.",
             "unit": ""
         },
         {
@@ -966,9 +806,19 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_timex_estimated_error_seconds",
+            "metric": "node_memory_Dirty_bytes",
             "type": "gauge",
-            "help": "Estimated error in seconds.",
+            "help": "Memory information field Dirty_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_sockstat_UDP_mem_bytes",
+            "type": "gauge",
+            "help": "Number of UDP sockets in state mem_bytes.",
             "unit": ""
         },
         {
@@ -986,19 +836,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_iface_link_mode",
+            "metric": "node_timex_estimated_error_seconds",
             "type": "gauge",
-            "help": "iface_link_mode value of /sys/class/net/<iface>.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_network_receive_frame_total",
-            "type": "counter",
-            "help": "Network device statistic receive_frame.",
+            "help": "Estimated error in seconds.",
             "unit": ""
         },
         {
@@ -1036,6 +876,36 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "node_network_iface_link_mode",
+            "type": "gauge",
+            "help": "iface_link_mode value of /sys/class/net/<iface>.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_receive_frame_total",
+            "type": "counter",
+            "help": "Network device statistic receive_frame.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_disk_write_time_seconds_total",
+            "type": "counter",
+            "help": "This is the total number of seconds spent by all writes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_intr_total",
             "type": "counter",
             "help": "Total number of interrupts serviced.",
@@ -1049,16 +919,6 @@
             "metric": "node_time_seconds",
             "type": "gauge",
             "help": "System time in seconds since epoch (1970).",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_disk_write_time_seconds_total",
-            "type": "counter",
-            "help": "This is the total number of seconds spent by all writes.",
             "unit": ""
         },
         {
@@ -1116,26 +976,6 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Shmem_bytes",
-            "type": "gauge",
-            "help": "Memory information field Shmem_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_netstat_Udp_NoPorts",
-            "type": "unknown",
-            "help": "Statistic UdpNoPorts.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
             "metric": "process_virtual_memory_bytes",
             "type": "gauge",
             "help": "Virtual memory size in bytes.",
@@ -1156,9 +996,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_carrier",
+            "metric": "node_memory_Shmem_bytes",
             "type": "gauge",
-            "help": "carrier value of /sys/class/net/<iface>.",
+            "help": "Memory information field Shmem_bytes.",
             "unit": ""
         },
         {
@@ -1166,9 +1006,19 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_exporter_build_info",
+            "metric": "node_netstat_Udp_NoPorts",
+            "type": "unknown",
+            "help": "Statistic UdpNoPorts.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_carrier",
             "type": "gauge",
-            "help": "A metric with a constant '1' value labeled by version, revision, branch, and goversion from which node_exporter was built.",
+            "help": "carrier value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -1189,6 +1039,16 @@
             "metric": "node_memory_NFS_Unstable_bytes",
             "type": "gauge",
             "help": "Memory information field NFS_Unstable_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_exporter_build_info",
+            "type": "gauge",
+            "help": "A metric with a constant '1' value labeled by version, revision, branch, and goversion from which node_exporter was built.",
             "unit": ""
         },
         {
@@ -1226,6 +1086,16 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "go_memstats_alloc_bytes_total",
+            "type": "counter",
+            "help": "Total number of bytes allocated, even if freed.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_netstat_Tcp_RetransSegs",
             "type": "unknown",
             "help": "Statistic TcpRetransSegs.",
@@ -1239,36 +1109,6 @@
             "metric": "node_network_receive_compressed_total",
             "type": "counter",
             "help": "Network device statistic receive_compressed.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "go_memstats_alloc_bytes_total",
-            "type": "counter",
-            "help": "Total number of bytes allocated, even if freed.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_cpu_seconds_total",
-            "type": "counter",
-            "help": "Seconds the cpus spent in each mode.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_Inactive_bytes",
-            "type": "gauge",
-            "help": "Memory information field Inactive_bytes.",
             "unit": ""
         },
         {
@@ -1306,9 +1146,19 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_flags",
+            "metric": "node_cpu_seconds_total",
+            "type": "counter",
+            "help": "Seconds the cpus spent in each mode.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_Inactive_bytes",
             "type": "gauge",
-            "help": "flags value of /sys/class/net/<iface>.",
+            "help": "Memory information field Inactive_bytes.",
             "unit": ""
         },
         {
@@ -1326,9 +1176,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_speed_bytes",
+            "metric": "node_network_flags",
             "type": "gauge",
-            "help": "speed_bytes value of /sys/class/net/<iface>.",
+            "help": "flags value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -1336,9 +1186,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_receive_fifo_total",
-            "type": "counter",
-            "help": "Network device statistic receive_fifo.",
+            "metric": "node_network_speed_bytes",
+            "type": "gauge",
+            "help": "speed_bytes value of /sys/class/net/<iface>.",
             "unit": ""
         },
         {
@@ -1366,9 +1216,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_filesystem_free_bytes",
-            "type": "gauge",
-            "help": "Filesystem free space in bytes.",
+            "metric": "node_network_receive_fifo_total",
+            "type": "counter",
+            "help": "Network device statistic receive_fifo.",
             "unit": ""
         },
         {
@@ -1379,6 +1229,16 @@
             "metric": "node_disk_written_bytes_total",
             "type": "counter",
             "help": "The total number of bytes written successfully.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_filesystem_free_bytes",
+            "type": "gauge",
+            "help": "Filesystem free space in bytes.",
             "unit": ""
         },
         {
@@ -1406,26 +1266,6 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Tcp_CurrEstab",
-            "type": "unknown",
-            "help": "Statistic TcpCurrEstab.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_sockstat_UDP_inuse",
-            "type": "gauge",
-            "help": "Number of UDP sockets in state inuse.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
             "metric": "promhttp_metric_handler_requests_total",
             "type": "counter",
             "help": "Total number of scrapes by HTTP status code.",
@@ -1446,9 +1286,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_frees_total",
-            "type": "counter",
-            "help": "Total number of frees.",
+            "metric": "node_netstat_Tcp_CurrEstab",
+            "type": "unknown",
+            "help": "Statistic TcpCurrEstab.",
             "unit": ""
         },
         {
@@ -1456,9 +1296,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_forks_total",
-            "type": "counter",
-            "help": "Total number of forks.",
+            "metric": "node_sockstat_UDP_inuse",
+            "type": "gauge",
+            "help": "Number of UDP sockets in state inuse.",
             "unit": ""
         },
         {
@@ -1496,9 +1336,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_mallocs_total",
+            "metric": "go_memstats_frees_total",
             "type": "counter",
-            "help": "Total number of mallocs.",
+            "help": "Total number of frees.",
             "unit": ""
         },
         {
@@ -1506,9 +1346,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_disk_read_time_seconds_total",
+            "metric": "node_forks_total",
             "type": "counter",
-            "help": "The total number of seconds spent by all reads.",
+            "help": "Total number of forks.",
             "unit": ""
         },
         {
@@ -1546,9 +1386,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_iface_id",
-            "type": "gauge",
-            "help": "iface_id value of /sys/class/net/<iface>.",
+            "metric": "go_memstats_mallocs_total",
+            "type": "counter",
+            "help": "Total number of mallocs.",
             "unit": ""
         },
         {
@@ -1556,9 +1396,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_network_receive_multicast_total",
+            "metric": "node_disk_read_time_seconds_total",
             "type": "counter",
-            "help": "Network device statistic receive_multicast.",
+            "help": "The total number of seconds spent by all reads.",
             "unit": ""
         },
         {
@@ -1586,6 +1426,36 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "node_network_iface_id",
+            "type": "gauge",
+            "help": "iface_id value of /sys/class/net/<iface>.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_receive_multicast_total",
+            "type": "counter",
+            "help": "Network device statistic receive_multicast.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_cpu_guest_seconds_total",
+            "type": "counter",
+            "help": "Seconds the cpus spent in guests (VMs) for each mode.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_memory_VmallocTotal_bytes",
             "type": "gauge",
             "help": "Memory information field VmallocTotal_bytes.",
@@ -1606,9 +1476,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_cpu_guest_seconds_total",
-            "type": "counter",
-            "help": "Seconds the cpus spent in guests (VMs) for each mode.",
+            "metric": "node_disk_io_now",
+            "type": "gauge",
+            "help": "The number of I/Os currently in progress.",
             "unit": ""
         },
         {
@@ -1636,9 +1506,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_disk_io_now",
-            "type": "gauge",
-            "help": "The number of I/Os currently in progress.",
+            "metric": "node_network_receive_errs_total",
+            "type": "counter",
+            "help": "Network device statistic receive_errs.",
             "unit": ""
         },
         {
@@ -1659,36 +1529,6 @@
             "metric": "node_network_transmit_carrier_total",
             "type": "counter",
             "help": "Network device statistic transmit_carrier.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_network_receive_errs_total",
-            "type": "counter",
-            "help": "Network device statistic receive_errs.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "go_memstats_stack_sys_bytes",
-            "type": "gauge",
-            "help": "Number of bytes obtained from system for stack allocator.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_netstat_TcpExt_SyncookiesRecv",
-            "type": "unknown",
-            "help": "Statistic TcpExtSyncookiesRecv.",
             "unit": ""
         },
         {
@@ -1746,9 +1586,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_Bounce_bytes",
+            "metric": "go_memstats_stack_sys_bytes",
             "type": "gauge",
-            "help": "Memory information field Bounce_bytes.",
+            "help": "Number of bytes obtained from system for stack allocator.",
             "unit": ""
         },
         {
@@ -1756,9 +1596,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Udp6_OutDatagrams",
+            "metric": "node_netstat_TcpExt_SyncookiesRecv",
             "type": "unknown",
-            "help": "Statistic Udp6OutDatagrams.",
+            "help": "Statistic TcpExtSyncookiesRecv.",
             "unit": ""
         },
         {
@@ -1776,9 +1616,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_threads",
+            "metric": "node_memory_Bounce_bytes",
             "type": "gauge",
-            "help": "Number of OS threads created.",
+            "help": "Memory information field Bounce_bytes.",
             "unit": ""
         },
         {
@@ -1786,9 +1626,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_memory_SwapCached_bytes",
-            "type": "gauge",
-            "help": "Memory information field SwapCached_bytes.",
+            "metric": "node_netstat_Udp6_OutDatagrams",
+            "type": "unknown",
+            "help": "Statistic Udp6OutDatagrams.",
             "unit": ""
         },
         {
@@ -1836,6 +1676,36 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "go_threads",
+            "type": "gauge",
+            "help": "Number of OS threads created.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_SwapCached_bytes",
+            "type": "gauge",
+            "help": "Memory information field SwapCached_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_netstat_Icmp6_InMsgs",
+            "type": "unknown",
+            "help": "Statistic Icmp6InMsgs.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_netstat_TcpExt_SyncookiesFailed",
             "type": "unknown",
             "help": "Statistic TcpExtSyncookiesFailed.",
@@ -1856,26 +1726,6 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Icmp6_InMsgs",
-            "type": "unknown",
-            "help": "Statistic Icmp6InMsgs.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_netstat_UdpLite_InErrors",
-            "type": "unknown",
-            "help": "Statistic UdpLiteInErrors.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
             "metric": "node_netstat_TcpExt_SyncookiesSent",
             "type": "unknown",
             "help": "Statistic TcpExtSyncookiesSent.",
@@ -1886,19 +1736,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Udp_OutDatagrams",
+            "metric": "node_netstat_UdpLite_InErrors",
             "type": "unknown",
-            "help": "Statistic UdpOutDatagrams.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_sockstat_TCP_inuse",
-            "type": "gauge",
-            "help": "Number of TCP sockets in state inuse.",
+            "help": "Statistic UdpLiteInErrors.",
             "unit": ""
         },
         {
@@ -1946,9 +1786,19 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Udp6_InDatagrams",
+            "metric": "node_netstat_Udp_OutDatagrams",
             "type": "unknown",
-            "help": "Statistic Udp6InDatagrams.",
+            "help": "Statistic UdpOutDatagrams.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_sockstat_TCP_inuse",
+            "type": "gauge",
+            "help": "Number of TCP sockets in state inuse.",
             "unit": ""
         },
         {
@@ -1966,9 +1816,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_netstat_Ip_Forwarding",
+            "metric": "node_netstat_Udp6_InDatagrams",
             "type": "unknown",
-            "help": "Statistic IpForwarding.",
+            "help": "Statistic Udp6InDatagrams.",
             "unit": ""
         },
         {
@@ -1979,6 +1829,16 @@
             "metric": "node_memory_Slab_bytes",
             "type": "gauge",
             "help": "Memory information field Slab_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_netstat_Ip_Forwarding",
+            "type": "unknown",
+            "help": "Statistic IpForwarding.",
             "unit": ""
         },
         {
@@ -1999,26 +1859,6 @@
             "metric": "go_memstats_lookups_total",
             "type": "counter",
             "help": "Total number of pointer lookups.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "go_memstats_mcache_sys_bytes",
-            "type": "gauge",
-            "help": "Number of bytes used for mcache structures obtained from system.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_filesystem_files",
-            "type": "gauge",
-            "help": "Filesystem total file nodes.",
             "unit": ""
         },
         {
@@ -2076,6 +1916,36 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
+            "metric": "go_memstats_mcache_sys_bytes",
+            "type": "gauge",
+            "help": "Number of bytes used for mcache structures obtained from system.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_filesystem_files",
+            "type": "gauge",
+            "help": "Filesystem total file nodes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_sockstat_FRAG_inuse",
+            "type": "gauge",
+            "help": "Number of FRAG sockets in state inuse.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
             "metric": "node_sockstat_sockets_used",
             "type": "gauge",
             "help": "Number of sockets sockets in state used.",
@@ -2096,9 +1966,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "node_sockstat_FRAG_inuse",
+            "metric": "go_memstats_heap_alloc_bytes",
             "type": "gauge",
-            "help": "Number of FRAG sockets in state inuse.",
+            "help": "Number of heap bytes allocated and still in use.",
             "unit": ""
         },
         {
@@ -2126,39 +1996,9 @@
                 "instance": "demo.robustperception.io:9100",
                 "job": "node"
             },
-            "metric": "go_memstats_heap_alloc_bytes",
-            "type": "gauge",
-            "help": "Number of heap bytes allocated and still in use.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
             "metric": "node_sockstat_TCP_alloc",
             "type": "gauge",
             "help": "Number of TCP sockets in state alloc.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_memory_MemTotal_bytes",
-            "type": "gauge",
-            "help": "Memory information field MemTotal_bytes.",
-            "unit": ""
-        },
-        {
-            "target": {
-                "instance": "demo.robustperception.io:9100",
-                "job": "node"
-            },
-            "metric": "node_netstat_UdpLite6_InErrors",
-            "type": "unknown",
-            "help": "Statistic UdpLite6InErrors.",
             "unit": ""
         },
         {
@@ -2209,6 +2049,166 @@
             "metric": "node_memory_DirectMap1G_bytes",
             "type": "gauge",
             "help": "Memory information field DirectMap1G_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_MemTotal_bytes",
+            "type": "gauge",
+            "help": "Memory information field MemTotal_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_netstat_UdpLite6_InErrors",
+            "type": "unknown",
+            "help": "Statistic UdpLite6InErrors.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_HugePages_Free",
+            "type": "gauge",
+            "help": "Memory information field HugePages_Free.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_iface_link",
+            "type": "gauge",
+            "help": "iface_link value of /sys/class/net/<iface>.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_scrape_collector_success",
+            "type": "gauge",
+            "help": "node_exporter: Whether a collector succeeded.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_disk_reads_merged_total",
+            "type": "counter",
+            "help": "The total number of reads merged.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_load1",
+            "type": "gauge",
+            "help": "1m load average.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_timex_pps_shift_seconds",
+            "type": "gauge",
+            "help": "Pulse per second interval duration.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_filefd_allocated",
+            "type": "gauge",
+            "help": "File descriptor statistics: allocated.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_filefd_maximum",
+            "type": "gauge",
+            "help": "File descriptor statistics: maximum.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "process_open_fds",
+            "type": "gauge",
+            "help": "Number of open file descriptors.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_network_receive_drop_total",
+            "type": "counter",
+            "help": "Network device statistic receive_drop.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_sockstat_TCP_orphan",
+            "type": "gauge",
+            "help": "Number of TCP sockets in state orphan.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_DirectMap2M_bytes",
+            "type": "gauge",
+            "help": "Memory information field DirectMap2M_bytes.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_memory_HugePages_Total",
+            "type": "gauge",
+            "help": "Memory information field HugePages_Total.",
+            "unit": ""
+        },
+        {
+            "target": {
+                "instance": "demo.robustperception.io:9100",
+                "job": "node"
+            },
+            "metric": "node_netstat_TcpExt_ListenOverflows",
+            "type": "unknown",
+            "help": "Statistic TcpExtListenOverflows.",
             "unit": ""
         }
     ]

@@ -10,3 +10,5 @@ sessionInfoLog
 # VScode 
 .vscode/
 *.code-workspace
+doc
+Meta
