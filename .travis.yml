@@ -2,6 +2,8 @@
 
 language: r
 sudo: false
+latex: false
+fortran: false
 
 cache:
   directories:
@@ -9,16 +11,19 @@ cache:
     - $TRAVIS_BUILD_DIR/packrat/lib
   packages: true
 
-latex: false
-
-fortran: false
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libssl-dev
+      - libssh2-1-dev
+      - libxml2-dev
 
 r_binary_packages:
   - rmarkdown
 
 r_github_packages:
   - jimhester/covr
-
 
 matrix:
   fast_finish: true
