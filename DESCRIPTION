@@ -1,27 +1,38 @@
 Package: promR
 Title: Prometheus API Client
 Version: 0.1.1
-Authors@R: as.person(c(
-    "Glenn McDonald <me@glennm.xyz> [aut, cre]", 
-    "Tyler Littlefield <tylurp1@gmail.com> [aut]",
-    "Konrad Zdeb <konrad.zdeb@me.com> [aut]"
-  ))
-Description: R library for reading metrics stored on a Prometheus Server.
-Depends: R (>= 3.3.0)
-Imports: 
-    checkmate (>= 1.9.1),
-    httr      (>= 1.3.1),
-    jsonlite  (>= 1.5.0),
-    methods   (>= 3.0.0)
+Authors@R: 
+    c(person(given = "Glenn",
+             family = "McDonald",
+             role = c("aut", "cre"),
+             email = "me@glennm.xyz"),
+      person(given = "Tyler",
+             family = "Littlefield",
+             role = "aut",
+             email = "tylurp1@gmail.com"),
+      person(given = "Konrad",
+             family = "Zdeb",
+             role = "aut",
+             email = "konrad.zdeb@me.com"))
+Description: R library for reading metrics stored on a
+    Prometheus Server.
 License: MIT + file LICENSE
 URL: https://github.com/glenn-m/promR
+Depends: 
+    R (>= 3.3.0)
+Imports: 
+    checkmate (>= 1.9.1),
+    httr (>= 1.3.1),
+    jsonlite (>= 1.5.0),
+    methods (>= 3.0.0)
+Suggests: 
+    covr (>= 3.2.1),
+    httptest (>= 3.2.1),
+    knitr (>= 1.22),
+    rmarkdown (>= 1.14),
+    testthat (>= 2.0.1)
+VignetteBuilder: 
+    knitr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
-Suggests: 
-    covr      (>= 3.2.1),
-    httptest  (>= 3.2.1),
-    knitr     (>= 1.22),
-    rmarkdown (>= 1.14),
-    testthat  (>= 2.0.1)
-VignetteBuilder: knitr
