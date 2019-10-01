@@ -13,7 +13,8 @@ Authors@R:
       person(given = "Konrad",
              family = "Zdeb",
              role = "aut",
-             email = "konrad.zdeb@me.com"))
+             email = "konrad.zdeb@me.com",
+             comment = c(ORCID = "0000-0002-4497-5681")))
 Description: R library for reading metrics stored on a
     Prometheus Server.
 License: MIT + file LICENSE
