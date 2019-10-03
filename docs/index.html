@@ -45,6 +45,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/basic-usage.html">Basic Usage</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -78,12 +90,12 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install <code>promR</code> using <a href="https://github.com/r-lib/devtools"><code>devtools</code></a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span> (<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ns-load">requireNamespace</a></span>(<span class="st">"devtools"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</a>
-<a class="sourceLine" id="cb1-2" title="2">    devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">'glenn-m/promR'</span>)</a>
-<a class="sourceLine" id="cb1-3" title="3">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb1-4" title="4">    <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</a>
-<a class="sourceLine" id="cb1-5" title="5">    devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">'glenn-m/promR'</span>)</a>
-<a class="sourceLine" id="cb1-6" title="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="cf">if</span> (<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ns-load">requireNamespace</a></span>(<span class="st">"devtools"</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">'glenn-m/promR'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>} <span class="cf">else</span> {</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"devtools"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">'glenn-m/promR'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>}</span></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
@@ -92,10 +104,10 @@
 <h3 class="hasAnchor">
 <a href="#instant-query" class="anchor"></a>Instant Query</h3>
 <p>To retrieve the value of the <code>go_goroutines</code> metric 60 seconds ago.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
-<a class="sourceLine" id="cb2-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="co"># Timestamps can be in rfc3339 or unix format</span></a>
-<a class="sourceLine" id="cb2-4" title="4">metrics_instant &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">query</span>(<span class="dt">query =</span> <span class="st">"go_goroutines"</span>, <span class="dt">time =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>() <span class="op">-</span><span class="st"> </span><span class="dv">60</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Timestamps can be in rfc3339 or unix format</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>metrics_instant &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">query</span>(<span class="dt">query =</span> <span class="st">"go_goroutines"</span>, <span class="dt">time =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>() <span class="op">-</span><span class="st"> </span><span class="dv">60</span>))</span></code></pre></div>
 <p><strong>Output:</strong></p>
 <table class="table table">
 <thead><tr class="header">
@@ -111,32 +123,32 @@
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">prometheus</td>
-<td align="left">1556402663.85</td>
-<td align="right">105</td>
+<td align="left">1565524845.295</td>
+<td align="right">295</td>
 <td align="right">9090</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">pushgateway</td>
-<td align="left">1556402663.85</td>
-<td align="right">45</td>
+<td align="left">1565524845.295</td>
+<td align="right">121</td>
 <td align="right">9091</td>
 </tr>
 <tr class="odd">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">alertmanager</td>
-<td align="left">1556402663.85</td>
-<td align="right">38</td>
+<td align="left">1565524845.295</td>
+<td align="right">36</td>
 <td align="right">9093</td>
 </tr>
 <tr class="even">
 <td align="left">go_goroutines</td>
 <td align="left">demo.robustperception.io</td>
 <td align="left">node</td>
-<td align="left">1556402663.85</td>
-<td align="right">11</td>
+<td align="left">1565524845.295</td>
+<td align="right">8</td>
 <td align="right">9100</td>
 </tr>
 </tbody>
@@ -145,75 +157,15 @@
 <div id="range-query" class="section level3">
 <h3 class="hasAnchor">
 <a href="#range-query" class="anchor"></a>Range Query</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
-<a class="sourceLine" id="cb3-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
-<a class="sourceLine" id="cb3-3" title="3">metrics_range &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">rangeQuery</span>(</a>
-<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">query =</span> <span class="st">"go_goroutines"</span>,</a>
-<a class="sourceLine" id="cb3-5" title="5">  <span class="dt">start =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>() <span class="op">-</span><span class="st"> </span><span class="dv">600</span>)),</a>
-<a class="sourceLine" id="cb3-6" title="6">  <span class="dt">end =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>())),</a>
-<a class="sourceLine" id="cb3-7" title="7">  <span class="dt">step =</span> <span class="st">"10s"</span></a>
-<a class="sourceLine" id="cb3-8" title="8">)</a></code></pre></div>
-<p><strong>Output:</strong></p>
-<table class="table table">
-<thead><tr class="header">
-<th align="left"><strong>name</strong></th>
-<th align="left">instance</th>
-<th align="left">job</th>
-<th align="right">port</th>
-<th align="left">timestamp</th>
-<th align="right">value</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402123.995</td>
-<td align="right">95</td>
-</tr>
-<tr class="even">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402133.995</td>
-<td align="right">95</td>
-</tr>
-<tr class="odd">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402143.995</td>
-<td align="right">95</td>
-</tr>
-<tr class="even">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402153.995</td>
-<td align="right">99</td>
-</tr>
-<tr class="odd">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402163.995</td>
-<td align="right">95</td>
-</tr>
-<tr class="even">
-<td align="left">go_goroutines</td>
-<td align="left">demo.robustperception.io</td>
-<td align="left">prometheus</td>
-<td align="right">9090</td>
-<td align="left">1556402173.995</td>
-<td align="right">95</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>metrics_range &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">rangeQuery</span>(</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="dt">query =</span> <span class="st">"go_goroutines"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="dt">start =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>() <span class="op">-</span><span class="st"> </span><span class="dv">600</span>)),</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="dt">end =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/numeric">as.numeric</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/as.POSIXlt">as.POSIXct</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Sys.time">Sys.time</a></span>())),</span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="dt">step =</span> <span class="st">"10s"</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>)</span></code></pre></div>
+<p><strong>Output:</strong> <strong>name</strong> instance job port timestamp 1 go_goroutines demo.robustperception.io prometheus 9090 1565524306.048 value 1 295</p>
 </div>
 <div id="metadata-query" class="section level3">
 <h3 class="hasAnchor">
@@ -221,9 +173,9 @@
 <div id="get-metadata-for-all-node-exporter-metrics-" class="section level4">
 <h4 class="hasAnchor">
 <a href="#get-metadata-for-all-node-exporter-metrics-" class="anchor"></a>Get metadata for all node exporter metrics.</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
-<a class="sourceLine" id="cb4-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
-<a class="sourceLine" id="cb4-3" title="3">metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job="node"}'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job="node"}'</span>)</span></code></pre></div>
 <p><strong>Output:</strong></p>
 <table class="table table">
 <thead><tr class="header">
@@ -236,50 +188,51 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">node_netstat_Icmp_InMsgs</td>
-<td align="left">unknown</td>
-<td align="left">Statistic IcmpInMsgs.</td>
+<td align="left">node_memory_SwapTotal_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Memory information field SwapTotal_bytes.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_netstat_TcpExt_SyncookiesFailed</td>
+<td align="left">node_netstat_Udp_InErrors</td>
 <td align="left">unknown</td>
-<td align="left">Statistic TcpExtSyncookiesFailed.</td>
+<td align="left">Statistic UdpInErrors.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_network_dormant</td>
+<td align="left">node_network_address_assign_type</td>
 <td align="left">gauge</td>
-<td align="left">dormant value of /sys/class/net/<iface>.</iface>
+<td align="left">address_assign_type value of /sys/class/net/<iface>.</iface>
 </td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_memory_MemFree_bytes</td>
+<td align="left">node_timex_tick_seconds</td>
 <td align="left">gauge</td>
-<td align="left">Memory information field MemFree_bytes.</td>
+<td align="left">Seconds between clock ticks.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="odd">
-<td align="left">node_filesystem_size_bytes</td>
-<td align="left">gauge</td>
-<td align="left">Filesystem size in bytes.</td>
+<td align="left">node_netstat_Udp6_NoPorts</td>
+<td align="left">unknown</td>
+<td align="left">Statistic Udp6NoPorts.</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
 </tr>
 <tr class="even">
-<td align="left">node_netstat_UdpLite_InErrors</td>
-<td align="left">unknown</td>
-<td align="left">Statistic UdpLiteInErrors.</td>
+<td align="left">node_network_dormant</td>
+<td align="left">gauge</td>
+<td align="left">dormant value of /sys/class/net/<iface>.</iface>
+</td>
 <td align="left"></td>
 <td align="left">demo.robustperception.io:9100</td>
 <td align="left">node</td>
@@ -291,9 +244,9 @@
 <div id="get-metadata-for-all-metrics-" class="section level3">
 <h3 class="hasAnchor">
 <a href="#get-metadata-for-all-metrics-" class="anchor"></a>Get metadata for all metrics.</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</a>
-<a class="sourceLine" id="cb5-2" title="2">prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</a>
-<a class="sourceLine" id="cb5-3" title="3">metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job=~".+"}'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(promR)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>prom &lt;-<span class="st"> </span>Prometheus<span class="op">$</span><span class="kw">new</span>(<span class="dt">host =</span> <span class="st">"http://demo.robustperception.io"</span>, <span class="dt">port =</span> <span class="dv">9090</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>metrics_metadata &lt;-<span class="st"> </span>prom<span class="op">$</span><span class="kw">metadataQuery</span>(<span class="dt">match_target =</span> <span class="st">'{job=~".+"}'</span>)</span></code></pre></div>
 <p><strong>Output:</strong></p>
 <table class="table table">
 <thead><tr class="header">
@@ -306,52 +259,52 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">prometheus_sd_kubernetes_cache_last_resource_version</td>
+<td align="left">go_memstats_gc_sys_bytes</td>
 <td align="left">gauge</td>
-<td align="left">Last resource version from the Kubernetes API.</td>
+<td align="left">Number of bytes used for garbage collection system metadata.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="even">
-<td align="left">prometheus_tsdb_compactions_total</td>
+<td align="left">go_memstats_lookups_total</td>
 <td align="left">counter</td>
-<td align="left">Total number of compactions that were executed for the partition.</td>
+<td align="left">Total number of pointer lookups.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="odd">
-<td align="left">prometheus_tsdb_head_chunks_created_total</td>
-<td align="left">counter</td>
-<td align="left">Total number of chunks created in the head</td>
+<td align="left">go_memstats_stack_sys_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Number of bytes obtained from system for stack allocator.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="even">
-<td align="left">prometheus_tsdb_head_series_created_total</td>
-<td align="left">counter</td>
-<td align="left">Total number of series created in the head</td>
+<td align="left">process_virtual_memory_bytes</td>
+<td align="left">gauge</td>
+<td align="left">Virtual memory size in bytes.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="odd">
-<td align="left">go_memstats_buck_hash_sys_bytes</td>
-<td align="left">gauge</td>
-<td align="left">Number of bytes used by the profiling bucket hash table.</td>
+<td align="left">promhttp_metric_handler_requests_total</td>
+<td align="left">counter</td>
+<td align="left">Total number of scrapes by HTTP status code.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 <tr class="even">
-<td align="left">prometheus_rule_group_iterations_total</td>
-<td align="left">counter</td>
-<td align="left">The total number of scheduled rule group evaluations, whether executed or missed.</td>
+<td align="left">go_goroutines</td>
+<td align="left">gauge</td>
+<td align="left">Number of goroutines that currently exist.</td>
 <td align="left"></td>
-<td align="left">demo.robustperception.io:9090</td>
-<td align="left">prometheus</td>
+<td align="left">demo.robustperception.io:9091</td>
+<td align="left">pushgateway</td>
 </tr>
 </tbody>
 </table>
