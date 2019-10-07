@@ -7,6 +7,8 @@
 \title{promR}
 \description{
 Package creating Prometheus class.
+
+\if{html}{\figure{logo.png}{options: alt="promR logo" align="right"}}
 }
 \seealso{
 Useful links:
@@ -21,7 +23,7 @@ Useful links:
 Authors:
 \itemize{
   \item Tyler Littlefield \email{tylurp1@gmail.com}
-  \item Konrad Zdeb \email{konrad.zdeb@me.com}
+  \item Konrad Zdeb \email{konrad.zdeb@me.com} (0000-0002-4497-5681)
 }
 
 }
