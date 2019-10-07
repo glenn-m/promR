@@ -20,3 +20,6 @@ sessionInfoLog
 ^.vscode/
 ^doc$
 ^Meta$
+
+# Exclude logo
+logo.png
