@@ -4,7 +4,9 @@
 \name{metrics_range}
 \alias{metrics_range}
 \title{Sample  Promethous range query results}
-\format{An object of class \code{data.frame} with 120 rows and 6 columns.}
+\format{
+An object of class \code{data.frame} with 120 rows and 6 columns.
+}
 \usage{
 metrics_range
 }

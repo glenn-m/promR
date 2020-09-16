@@ -14,7 +14,7 @@
 Run a metadata query against the Prometheus Server
 }
 \examples{
-\donttest{
+\dontrun{
 prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 metadata <- prom$metadataQuery(match_target = '{job=~"..*"}', metric = 'go_goroutines')
 }

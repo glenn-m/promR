@@ -10,3 +10,6 @@
 ^README.*$
 # Exclude RStudio session log
 sessionInfoLog
+
+# Exclude logo
+logo.png
