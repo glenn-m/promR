@@ -2,7 +2,7 @@
 % Please edit documentation in R/promR.R
 \name{Prometheus_rangeQuery}
 \alias{Prometheus_rangeQuery}
-\title{Promtheus Range Query}
+\title{Prometheus Range Query}
 \arguments{
 \item{query}{The PromQL query}
 

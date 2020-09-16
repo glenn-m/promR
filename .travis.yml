@@ -1,26 +1,50 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+# Header
+language: r
 sudo: false
-dist: trusty
-cache: packages
-latex: false
 fortran: false
 
-# Extend travis jobs to account for major R versions
-jobs:
+# Cache
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
+
+# apt
+addons:
+  apt:
+    packages:
+      - libcurl4-openssl-dev
+      - libssl-dev
+      - libssh2-1-dev
+      - libxml2-dev
+
+# R pkgs
+r_github_packages:
+  - jimhester/covr
+
+# build
+matrix:
+  fast_finish: true
   include:
-  - r: devel
-    warnings_are_errors: false
-  - r: oldrel
-    warnings_are_errors: true
-  - os: osx
-    warnings_are_errors: true
-  - r: release
-    warnings_are_errors: true
-    after_success:
-    - Rscript -e 'covr::codecov()'
-  - r: 3.4
-    warnings_are_errors: false
-  - r: 3.3
-    warnings_are_errors: false
+    - r: 3.4
+      warnings_are_errors: false
+    - r: oldrel
+      warnings_are_errors: false
+    - r: release
+      script:
+        - R CMD build .
+        - R CMD check *tar.gz --as-cran
+      after_success:
+        - Rscript -e 'covr::codecov(type = "all")'
+      warnings_are_errors: true
+    - r: devel
+      warnings_are_errors: false
+    - os: osx
+      r:  release
+      warnings_are_errors: true
+    - os: osx
+      r:  oldrel
+      warnings_are_errors: true

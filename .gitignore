@@ -1,3 +1,4 @@
+inst/doc
 # R production files
 .Rproj.user
 .Rhistory
@@ -5,3 +6,9 @@
 
 # RStudio session log
 sessionInfoLog
+
+# VScode 
+.vscode/
+*.code-workspace
+doc
+Meta

@@ -56,7 +56,7 @@ test_that(desc = "Error is raised when response type is not application/json.",
             ),
             class = "response")
             expect_error(response_check(response),
-                         "Prometheus API did not return json")
+                         "Prometheus API did not return JSON")
           })
 
 test_that(desc = "OK when application type is json and status code is 200.",
@@ -69,24 +69,3 @@ test_that(desc = "OK when application type is json and status code is 200.",
             class = "response")
             expect_silent(response_check(response))
           })
-
-# Test whether package can pull some sample data
-# Source query data once to use later across tests
-prom <-
-  Prometheus$new(host = "http://demo.robustperception.io", port = 9090)
-dta_tst_metrics <-
-  prom$query(query = "go_goroutines",
-             time = as.numeric(as.POSIXct(Sys.time())))
-
-test_that(desc = "Metrics within Prometheus class are data frame.",
-          code = expect_is(object = dta_tst_metrics,
-                           class = "data.frame"))
-
-test_that(desc = "Metrics data frame has some columns.",
-          code = expect_gt(object = ncol(dta_tst_metrics),
-                           expected = 2))
-
-test_that(desc = "Metrics data frame has some rows.",
-          code = expect_gt(object = nrow(dta_tst_metrics),
-                           expected = 2))
-

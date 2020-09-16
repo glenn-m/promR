@@ -89,7 +89,7 @@ Utility functions, usually called within the package and not
 
 \section{Checking Prometheus Server response}{
 
-  Returns more meanigful error code
+  Returns more meaningful error code
 }
 
 \section{Check Metrics Object}{
