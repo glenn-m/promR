@@ -7,6 +7,8 @@
 \title{Prometheus class}
 \description{
 Reference Class to interface with a Prometheus Server
+
+\if{html}{\figure{logo.png}{options: alt="promR logo" align="right"}}
 }
 \section{Fields}{
 
@@ -25,5 +27,7 @@ Reference Class to interface with a Prometheus Server
 }}
 
 \examples{
-prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+\dontrun{
+ prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+}
 }

@@ -14,7 +14,7 @@
 Run a instant query against the Prometheus Server
 }
 \examples{
-\donttest{
+\dontrun{
  prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
  metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
  metrics <- prom$query(query = "up", time = "1540677062")

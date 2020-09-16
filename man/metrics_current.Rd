@@ -4,7 +4,9 @@
 \name{metrics_current}
 \alias{metrics_current}
 \title{Sample Promethous instant query results}
-\format{An object of class \code{data.frame} with 4 rows and 6 columns.}
+\format{
+An object of class \code{data.frame} with 4 rows and 6 columns.
+}
 \usage{
 metrics_current
 }

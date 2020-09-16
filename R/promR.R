@@ -1,5 +1,8 @@
 #' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
+#'
+#' \if{html}{\figure{logo.png}{options: alt="promR logo" align="right"}}
+#'
 #' @exportClass Prometheus
 #' @export Prometheus
 #' @field host The hostname of the Prometheus server
@@ -7,7 +10,9 @@
 #' @name Prometheus-class
 #' @rdname Prometheus-class
 #' @examples
-#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' \dontrun{
+#'  prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' }
 Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric"))
 
@@ -18,7 +23,7 @@ Prometheus <-
 #' @param time Evaluation timestamp, can be a rfc3339 or Unix timestamp. Optional, defaults to current Prometheus server time.
 #' @param timeout Evaluation timeout (e.g. 1h, 1.5m or 15s). Optional, defaults to timeout value of the Prometheus server.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'  prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #'  metrics <- prom$query(query = "up", time = "2018-10-26T20:10:51.781Z")
 #'  metrics <- prom$query(query = "up", time = "1540677062")
@@ -69,7 +74,7 @@ Prometheus$methods(
 #' @param step Query resolution step width (e.g. 15s)
 #' @param timeout Evaluation timeout. Optional, defaults to timeout value of the Prometheus server.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #' rangeMetrics <-
 #'  prom$rangeQuery(
@@ -119,7 +124,7 @@ Prometheus$methods(
 #' @param metric The metric to retrieve metadata for. Optional.
 #' @param limit The number of results of targets to return.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 #' metadata <- prom$metadataQuery(match_target = '{job=~"..*"}', metric = 'go_goroutines')
 #' }

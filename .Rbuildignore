@@ -12,6 +12,9 @@
 # Exclude RStudio session log
 sessionInfoLog
 
+# Exclude logo
+logo.png
+
 # Exclude vignette cache
 .*_cache/$
 
