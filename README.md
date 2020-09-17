@@ -5,7 +5,7 @@ promR <img src="man/figures/logo.png" align="right" />
 ======================================================
 
 [![Build
-Status](https://travis-ci.org/glenn-m/promR.svg?branch=master)](https://travis-ci.org/glenn-m/promR)
+status](https://github.com/glenn-m/promR/workflows/R-CMD-check/badge.svg)](https://github.com/glenn-m/promR/actions)
 [![Coverage
 status](https://codecov.io/gh/glenn-m/promR/branch/master/graph/badge.svg)](https://codecov.io/github/glenn-m/promR?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -40,12 +40,12 @@ To retrieve the value of the `go_goroutines` metric 60 seconds ago.
 
 **Output:**
 
-| name           | instance                 | job          | timestamp     | port |
-|:---------------|:-------------------------|:-------------|:--------------|-----:|
-| go\_goroutines | demo.robustperception.io | prometheus   | 1600223086.56 | 9090 |
-| go\_goroutines | demo.robustperception.io | pushgateway  | 1600223086.56 | 9091 |
-| go\_goroutines | demo.robustperception.io | alertmanager | 1600223086.56 | 9093 |
-| go\_goroutines | demo.robustperception.io | node         | 1600223086.56 | 9100 |
+| name           | instance                 | job          | timestamp      | port |
+|:---------------|:-------------------------|:-------------|:---------------|-----:|
+| go\_goroutines | demo.robustperception.io | prometheus   | 1600355179.603 | 9090 |
+| go\_goroutines | demo.robustperception.io | pushgateway  | 1600355179.603 | 9091 |
+| go\_goroutines | demo.robustperception.io | alertmanager | 1600355179.603 | 9093 |
+| go\_goroutines | demo.robustperception.io | node         | 1600355179.603 | 9100 |
 
 ### Range Query
 
@@ -58,16 +58,8 @@ To retrieve the value of the `go_goroutines` metric 60 seconds ago.
       step = "10s"
     )
 
-**Output:**
-
-| **name**       | instance                 | job        | port | timestamp      | value |
-|:---------------|:-------------------------|:-----------|-----:|:---------------|------:|
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222546.928 |    63 |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222556.928 |    66 |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222566.928 |    63 |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222576.928 |    63 |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222586.928 |    64 |
-| go\_goroutines | demo.robustperception.io | prometheus | 9090 | 1600222596.928 |    65 |
+**Output:** **name** instance job port timestamp value 1 go\_goroutines
+demo.robustperception.io prometheus 9090 1600354640.016 74
 
 ### Metadata Query
 
@@ -79,14 +71,14 @@ To retrieve the value of the `go_goroutines` metric 60 seconds ago.
 
 **Output:**
 
-| metric                               | type    | help                                                               | unit | instance                      | job  |
-|:-------------------------------------|:--------|:-------------------------------------------------------------------|:-----|:------------------------------|:-----|
-| go\_memstats\_other\_sys\_bytes      | gauge   | Number of bytes used for other system allocations.                 |      | demo.robustperception.io:9100 | node |
-| node\_netstat\_Udp6\_NoPorts         | unknown | Statistic Udp6NoPorts.                                             |      | demo.robustperception.io:9100 | node |
-| node\_network\_transmit\_errs\_total | counter | Network device statistic transmit\_errs.                           |      | demo.robustperception.io:9100 | node |
-| node\_sockstat\_TCP\_alloc           | gauge   | Number of TCP sockets in state alloc.                              |      | demo.robustperception.io:9100 | node |
-| node\_sockstat\_TCP\_mem             | gauge   | Number of TCP sockets in state mem.                                |      | demo.robustperception.io:9100 | node |
-| go\_memstats\_next\_gc\_bytes        | gauge   | Number of heap bytes when next garbage collection will take place. |      | demo.robustperception.io:9100 | node |
+| metric                                  | type    | help                                            | unit | instance                      | job  |
+|:----------------------------------------|:--------|:------------------------------------------------|:-----|:------------------------------|:-----|
+| node\_disk\_read\_time\_seconds\_total  | counter | The total number of seconds spent by all reads. |      | demo.robustperception.io:9100 | node |
+| node\_memory\_PageTables\_bytes         | gauge   | Memory information field PageTables\_bytes.     |      | demo.robustperception.io:9100 | node |
+| node\_network\_transmit\_packets\_total | counter | Network device statistic transmit\_packets.     |      | demo.robustperception.io:9100 | node |
+| node\_sockstat\_UDPLITE\_inuse          | gauge   | Number of UDPLITE sockets in state inuse.       |      | demo.robustperception.io:9100 | node |
+| node\_vmstat\_pswpout                   | unknown | /proc/vmstat information field pswpout.         |      | demo.robustperception.io:9100 | node |
+| node\_netstat\_Udp\_SndbufErrors        | unknown | Statistic UdpSndbufErrors.                      |      | demo.robustperception.io:9100 | node |
 
 ### Get metadata for all metrics.
 
@@ -96,14 +88,14 @@ To retrieve the value of the `go_goroutines` metric 60 seconds ago.
 
 **Output:**
 
-| metric                                           | type    | help                                                               | unit | instance                      | job          |
-|:-------------------------------------------------|:--------|:-------------------------------------------------------------------|:-----|:------------------------------|:-------------|
-| alertmanager\_nflog\_snapshot\_duration\_seconds | summary | Duration of the last notification log snapshot.                    |      | demo.robustperception.io:9093 | alertmanager |
-| go\_memstats\_gc\_sys\_bytes                     | gauge   | Number of bytes used for garbage collection system metadata.       |      | demo.robustperception.io:9093 | alertmanager |
-| go\_memstats\_next\_gc\_bytes                    | gauge   | Number of heap bytes when next garbage collection will take place. |      | demo.robustperception.io:9093 | alertmanager |
-| go\_memstats\_heap\_sys\_bytes                   | gauge   | Number of heap bytes obtained from system.                         |      | demo.robustperception.io:9093 | alertmanager |
-| go\_threads                                      | gauge   | Number of OS threads created.                                      |      | demo.robustperception.io:9093 | alertmanager |
-| process\_cpu\_seconds\_total                     | counter | Total user and system CPU time spent in seconds.                   |      | demo.robustperception.io:9093 | alertmanager |
+| metric                           | type    | help                                                                                        | unit | instance                      | job         |
+|:---------------------------------|:--------|:--------------------------------------------------------------------------------------------|:-----|:------------------------------|:------------|
+| go\_memstats\_mcache\_sys\_bytes | gauge   | Number of bytes used for mcache structures obtained from system.                            |      | demo.robustperception.io:9091 | pushgateway |
+| go\_memstats\_mspan\_sys\_bytes  | gauge   | Number of bytes used for mspan structures obtained from system.                             |      | demo.robustperception.io:9091 | pushgateway |
+| go\_threads                      | gauge   | Number of OS threads created.                                                               |      | demo.robustperception.io:9091 | pushgateway |
+| go\_gc\_duration\_seconds        | summary | A summary of the pause duration of garbage collection cycles.                               |      | demo.robustperception.io:9091 | pushgateway |
+| go\_memstats\_gc\_cpu\_fraction  | gauge   | The fraction of this program’s available CPU time used by the GC since the program started. |      | demo.robustperception.io:9091 | pushgateway |
+| go\_memstats\_heap\_alloc\_bytes | gauge   | Number of heap bytes allocated and still in use.                                            |      | demo.robustperception.io:9091 | pushgateway |
 
 Contributing
 ------------
